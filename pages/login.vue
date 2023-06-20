@@ -2,8 +2,8 @@
   <div>
     <h1>Login page</h1>
 
-    <validation-observer v-slot="{ valid, handleSubmit }">
-      <form @submit.prevent="handleSubmit(login(valid))">
+    <validation-observer v-slot="{ handleSubmit }">
+      <form @submit.prevent="handleSubmit(login)">
         <validation-provider v-slot="{ errors }" rules="required|email">
           <input v-model="email" type="text" name="email" placeholder="Email">
           <span>{{ errors[0] }}</span>
