@@ -4,9 +4,6 @@ export default {
   generate: {
     fallback: 'index.html'
   },
-  router: {
-    base: process.env.BASE_ROUTER || '/'
-  },
 
   server: {
     port: process.env.PORT || 3000,
@@ -37,7 +34,7 @@ export default {
         content: 'gB3ANfjfhh226RGrb1Sa9ypEFmhubEQPgTWEnZN7gvU'
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '~/assets/images/favicon.png' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
