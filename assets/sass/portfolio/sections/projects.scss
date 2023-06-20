@@ -1,6 +1,7 @@
 .projects {
   &__container {
     overflow: initial !important;
+    position: relative;
   }
 
   &__content {
@@ -40,7 +41,7 @@
 
   .swiper-button-prev::after,
   .swiper-button-next::after {
-    content: '';
+    content: "";
   }
 
   .swiper-projects-icon {
@@ -54,6 +55,10 @@
 
   .swiper-button-prev {
     left: 0;
+  }
+
+  .swiper-container-horizontal > .swiper-pagination {
+    bottom: -3.5rem;
   }
 
   .swiper-pagination-bullet {

@@ -6,300 +6,37 @@
     <span class="section__subtitle">My technical level</span>
 
     <div class="skills__container container grid">
-      <div class="skills__content">
+      <div
+        v-for="(skill, index) in skillsList"
+        :key="index"
+        class="skills__content"
+      >
         <div class="skills__header">
-          <font-awesome-icon class="skills__icon" :icon="[ 'fas', 'code' ]" />
+          <font-awesome-icon class="skills__icon" :icon="skill.icon" />
 
           <div>
             <h1 class="skills__title">
-              Frontend developer
+              {{ skill.title }}
             </h1>
-            <span class="skills__subtitle"> More than 2 years </span>
+            <span class="skills__subtitle"> {{ skill.subtitle }} </span>
           </div>
 
-          <font-awesome-icon class="skills__arrow" :icon="[ 'fas', 'chevron-down' ]" />
+          <font-awesome-icon
+            class="skills__arrow"
+            :icon="['fas', 'chevron-down']"
+          />
         </div>
 
         <div class="skills__list grid">
-          <div class="skills__data">
+          <div v-for="(item, i) in skill.skills" :key="i" class="skills__data">
             <div class="skills__titles">
               <h3 class="skills__name">
-                HTML
+                {{ item.name }}
               </h3>
-              <span class="skills__number" />
+              <span class="skills__number"> {{ item.year }}/{{ experience }} Years  </span>
             </div>
             <div class="skills__bar">
-              <span
-                data-year="2"
-                class="skills__percentage skills__html"
-              />
-            </div>
-          </div>
-
-          <div class="skills__data">
-            <div class="skills__titles">
-              <h3 class="skills__name">
-                CSS
-              </h3>
-              <span class="skills__number" />
-            </div>
-            <div class="skills__bar">
-              <span data-year="2" class="skills__percentage skills__css" />
-            </div>
-          </div>
-
-          <div class="skills__data">
-            <div class="skills__titles">
-              <h3 class="skills__name">
-                JavaScript
-              </h3>
-              <span class="skills__number" />
-            </div>
-            <div class="skills__bar">
-              <span data-year="2" class="skills__percentage skills__js" />
-            </div>
-          </div>
-
-          <div class="skills__data">
-            <div class="skills__titles">
-              <h3 class="skills__name">
-                React
-              </h3>
-              <span class="skills__number" />
-            </div>
-            <div class="skills__bar">
-              <span
-                data-year="1"
-                class="skills__percentage skills__react"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="skills__content">
-        <div class="skills__header">
-          <font-awesome-icon class="skills__icon" :icon="[ 'fas', 'gears' ]" />
-
-          <div>
-            <h1 class="skills__title">
-              Backend developer
-            </h1>
-            <span class="skills__subtitle"> More than 2 year </span>
-          </div>
-
-          <font-awesome-icon class="skills__arrow" :icon="[ 'fas', 'chevron-down' ]" />
-        </div>
-
-        <div class="skills__list grid">
-          <div class="skills__data">
-            <div class="skills__titles">
-              <h3 class="skills__name">
-                PHP
-              </h3>
-              <span class="skills__number" />
-            </div>
-            <div class="skills__bar">
-              <span data-year="2" class="skills__percentage skills__php" />
-            </div>
-          </div>
-
-          <div class="skills__data">
-            <div class="skills__titles">
-              <h3 class="skills__name">
-                Laravel
-              </h3>
-              <span class="skills__number" />
-            </div>
-            <div class="skills__bar">
-              <span
-                data-year="2"
-                class="skills__percentage skills__laravel"
-              />
-            </div>
-          </div>
-
-          <div class="skills__data">
-            <div class="skills__titles">
-              <h3 class="skills__name">
-                NodeJS
-              </h3>
-              <span class="skills__number" />
-            </div>
-            <div class="skills__bar">
-              <span
-                data-year="1"
-                class="skills__percentage skills__nodejs"
-              />
-            </div>
-          </div>
-
-          <div class="skills__data">
-            <div class="skills__titles">
-              <h3 class="skills__name">
-                SpringBoot
-              </h3>
-              <span class="skills__number" />
-            </div>
-            <div class="skills__bar">
-              <span
-                data-year="1.5"
-                class="skills__percentage skills__SpringBoot"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="skills__content">
-        <div class="skills__header">
-          <font-awesome-icon class="skills__icon" :icon="[ 'fas', 'database' ]" />
-
-          <div>
-            <h1 class="skills__title">
-              Database
-            </h1>
-            <span class="skills__subtitle"> More than 2 year </span>
-          </div>
-
-          <font-awesome-icon class="skills__arrow" :icon="[ 'fas', 'chevron-down' ]" />
-        </div>
-
-        <div class="skills__list grid">
-          <div class="skills__data">
-            <div class="skills__titles">
-              <h3 class="skills__name">
-                MySQL
-              </h3>
-              <span class="skills__number" />
-            </div>
-            <div class="skills__bar">
-              <span
-                data-year="2"
-                class="skills__percentage skills__mysql"
-              />
-            </div>
-          </div>
-
-          <div class="skills__data">
-            <div class="skills__titles">
-              <h3 class="skills__name">
-                MongoDB
-              </h3>
-              <span class="skills__number" />
-            </div>
-            <div class="skills__bar">
-              <span
-                data-year="0.5"
-                class="skills__percentage skills__mongodb"
-              />
-            </div>
-          </div>
-
-          <div class="skills__data">
-            <div class="skills__titles">
-              <h3 class="skills__name">
-                PostgreSQL
-              </h3>
-              <span class="skills__number" />
-            </div>
-            <div class="skills__bar">
-              <span
-                data-year="2"
-                class="skills__percentage skills__postgresql"
-              />
-            </div>
-          </div>
-
-          <div class="skills__data">
-            <div class="skills__titles">
-              <h3 class="skills__name">
-                Firebase
-              </h3>
-              <span class="skills__number" />
-            </div>
-            <div class="skills__bar">
-              <span
-                data-year="0.5"
-                class="skills__percentage skills__firebase"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="skills__content">
-        <div class="skills__header">
-          <font-awesome-icon class="skills__icon" :icon="[ 'fas', 'server' ]" />
-
-          <div>
-            <h1 class="skills__title">
-              System
-            </h1>
-            <span class="skills__subtitle"> More than 2 year </span>
-          </div>
-
-          <font-awesome-icon class="skills__arrow" :icon="[ 'fas', 'chevron-down' ]" />
-        </div>
-
-        <div class="skills__list grid">
-          <div class="skills__data">
-            <div class="skills__titles">
-              <h3 class="skills__name">
-                Linux
-              </h3>
-              <span class="skills__number" />
-            </div>
-            <div class="skills__bar">
-              <span
-                data-year="2"
-                class="skills__percentage skills__linux"
-              />
-            </div>
-          </div>
-
-          <div class="skills__data">
-            <div class="skills__titles">
-              <h3 class="skills__name">
-                Docker
-              </h3>
-              <span class="skills__number" />
-            </div>
-            <div class="skills__bar">
-              <span
-                data-year="1"
-                class="skills__percentage skills__docker"
-              />
-            </div>
-          </div>
-
-          <div class="skills__data">
-            <div class="skills__titles">
-              <h3 class="skills__name">
-                Kubernetes
-              </h3>
-              <span class="skills__number" />
-            </div>
-            <div class="skills__bar">
-              <span
-                data-year="0.5"
-                class="skills__percentage skills__kubernetes"
-              />
-            </div>
-          </div>
-
-          <div class="skills__data">
-            <div class="skills__titles">
-              <h3 class="skills__name">
-                AWS
-              </h3>
-              <span class="skills__number" />
-            </div>
-            <div class="skills__bar">
-              <span
-                data-year="0.5"
-                class="skills__percentage skills__aws"
-              />
+              <span :style="{ 'width': (item.year / experience * 100) + '%' }" class="skills__percentage skills__html" />
             </div>
           </div>
         </div>
@@ -309,7 +46,145 @@
 </template>
 
 <script>
+import $ from 'jquery';
+
 export default {
-  name: 'PortfolioSkillsSection'
+  name: 'PortfolioSkillsSection',
+  data () {
+    return {
+      experience: 0,
+      skillsList: [
+        {
+          icon: ['fas', 'code'],
+          title: 'Frontend Development',
+          subtitle: 'More than 2 year',
+          skills: [
+            {
+              name: 'HTML/CSS',
+              year: 2
+            },
+            {
+              name: 'JavaScript',
+              year: 2
+            },
+            {
+              name: 'Vue.js/Nuxt.js',
+              year: 1
+            },
+            {
+              name: 'React.js/Next.js',
+              year: 0.5
+            },
+            {
+              name: 'Angular',
+              year: 0.5
+            }
+          ]
+        },
+        {
+          icon: ['fas', 'gears'],
+          title: 'Backend Development',
+          subtitle: 'More than 2 year',
+          skills: [
+            {
+              name: 'PHP/Laravel',
+              year: 2
+            },
+            {
+              name: 'Node.js/Express.js',
+              year: 1
+            },
+            {
+              name: 'Spring Boot',
+              year: 1
+            },
+            {
+              name: 'Django',
+              year: 0.5
+            },
+            {
+              name: 'Flask',
+              year: 0.5
+            }
+          ]
+        },
+        {
+          icon: ['fas', 'database'],
+          title: 'Database',
+          subtitle: 'More than 2 year',
+          skills: [
+            {
+              name: 'MySQL/MariaDB',
+              year: 2
+            },
+            {
+              name: 'MongoDB',
+              year: 0.5
+            },
+            {
+              name: 'PostgreSQL',
+              year: 2
+            },
+            {
+              name: 'Firebase',
+              year: 0.5
+            }
+          ]
+        },
+        {
+          icon: ['fas', 'server'],
+          title: 'System',
+          subtitle: 'More than 2 year',
+          skills: [
+            {
+              name: 'Linux',
+              year: 2
+            },
+            {
+              name: 'Docker',
+              year: 1
+            },
+            {
+              name: 'Kubernetes',
+              year: 0.5
+            },
+            {
+              name: 'AWS',
+              year: 0.5
+            }
+          ]
+        }
+      ]
+    };
+  },
+  mounted () {
+    this.calculateExperience();
+
+    const skillsHeader = $('.skills__header');
+
+    skillsHeader.on('click', function () {
+      $(this).parent().toggleClass('active');
+
+      if ($(this).parent().hasClass('active')) {
+        $(this)
+          .parent()
+          .find('.skills__list')
+          .slideDown(200, function () {
+            $(this).css('display', 'grid');
+          });
+        return;
+      }
+
+      $(this).parent().find('.skills__list').slideUp(200);
+    });
+  },
+  methods: {
+    calculateExperience () {
+      const currentYear = new Date().getFullYear();
+      const startYear = 2021;
+
+      this.experience = currentYear - startYear;
+    }
+  }
 };
 </script>

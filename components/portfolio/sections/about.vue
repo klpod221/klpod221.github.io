@@ -16,15 +16,15 @@
 
         <div class="about__info">
           <div>
-            <span class="about__info-title"><span class="experience" />+</span>
+            <span class="about__info-title">{{ experience | integerNumber }}+</span>
             <span class="about__info-name">Years<br>experience</span>
           </div>
           <div>
-            <span class="about__info-title">20+</span>
+            <span class="about__info-title">{{ projects | integerNumber }}+</span>
             <span class="about__info-name">Completed<br>projects</span>
           </div>
           <div>
-            <span class="about__info-title">02+</span>
+            <span class="about__info-title">{{ companies | integerNumber }}+</span>
             <span class="about__info-name">Companies<br>worked</span>
           </div>
         </div>
@@ -41,6 +41,23 @@
 
 <script>
 export default {
-  name: 'PortfolioAboutSection'
+  name: 'PortfolioAboutSection',
+  data () {
+    return {
+      experience: 0,
+      projects: 20,
+      companies: 2
+    };
+  },
+  mounted () {
+    this.calculateExperience();
+  },
+  methods: {
+    calculateExperience () {
+      const startYear = 2021;
+      const currentYear = new Date().getFullYear();
+      this.experience = currentYear - startYear;
+    }
+  }
 };
 </script>

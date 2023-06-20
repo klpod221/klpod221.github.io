@@ -51,6 +51,10 @@ export default {
       src: '~/plugins/vue-toast.js',
       mode: 'client'
     },
+    {
+      src: '~/plugins/common.js',
+      mode: 'client'
+    },
     '~/plugins/inject.js',
     '~/plugins/axios.js',
     '~/plugins/api.js',

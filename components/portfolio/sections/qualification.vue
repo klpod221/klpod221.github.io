@@ -11,12 +11,18 @@
           class="qualification__button button--flex active"
           data-target="education"
         >
-          <font-awesome-icon class="qualification__icon" :icon="[ 'fas', 'school' ]" />
+          <font-awesome-icon
+            class="qualification__icon"
+            :icon="['fas', 'school']"
+          />
           Education
         </div>
 
         <div class="qualification__button button--flex" data-target="work">
-          <font-awesome-icon class="qualification__icon" :icon="[ 'fas', 'briefcase' ]" />
+          <font-awesome-icon
+            class="qualification__icon"
+            :icon="['fas', 'briefcase']"
+          />
           Work
         </div>
       </div>
@@ -172,7 +178,28 @@
 </template>
 
 <script>
+import $ from 'jquery';
+
 export default {
-  name: 'PortfolioQualificationSection'
+  name: 'PortfolioQualificationSection',
+  mounted () {
+    // qualifications tabs
+    const tabs = $('.qualification__button');
+    const tabsContent = $('.qualification__content');
+
+    tabs.on('click', function () {
+      if ($(this).hasClass('active')) {
+        return;
+      }
+
+      const tab = $(this).data('target');
+
+      tabs.removeClass('active');
+      $(this).addClass('active');
+
+      tabsContent.removeClass('active');
+      $(`.qualification__content[data-content="${tab}"]`).addClass('active');
+    });
+  }
 };
 </script>
