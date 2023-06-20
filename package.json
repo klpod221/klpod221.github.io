@@ -1,0 +1,56 @@
+{
+  "name": "klpod221",
+  "version": "1.0.0",
+  "author": "klpod221",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klpod221/klpod221.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/klpod221/klpod221.github.io/issues"
+  },
+  "homepage": "https://klpod221.github.io/klpod221.github.io/",
+  "license": "MIT",
+  "keywords": [
+    "klpod221",
+    "projects",
+    "nuxt",
+    "ken",
+    "longbottom"
+  ],
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/moment": "^1.6.1",
+    "cookie-universal-nuxt": "^2.2.2",
+    "core-js": "^3.25.3",
+    "nuxt": "^2.15.8",
+    "vee-validate": "^3.4.15",
+    "vue": "^2.7.10",
+    "vue-server-renderer": "^2.7.10",
+    "vue-sweetalert2": "^5.0.5",
+    "vue-template-compiler": "^2.7.10",
+    "vue-toast-notification": "^1.0.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/fontawesome": "^1.1.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.5.0",
+    "eslint-plugin-nuxt": "^1.0.0",
+    "sass": "^1.63.2",
+    "sass-loader": "10.1.1",
+    "vue-template-babel-compiler": "^2.0.0",
+    "webpack": "^4.46.0"
+  }
+}

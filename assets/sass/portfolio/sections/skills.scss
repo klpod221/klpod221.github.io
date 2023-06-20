@@ -1,0 +1,74 @@
+.skills {
+  &__container {
+    row-gap: 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    cursor: pointer;
+  }
+
+  &__icon,
+  &__arrow {
+    font-size: 2rem;
+  }
+
+  &__icon {
+    margin-right: 1rem;
+    width: 2rem !important;
+  }
+
+  &__arrow {
+    margin-left: auto;
+    transition: all 0.4s;
+  }
+
+  &__list {
+    padding-left: 2.5rem;
+    margin-bottom: 3rem;
+    display: none;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  &__subtitle {
+    font-size: 1.4rem;
+  }
+
+  &__titles {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  &__name {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  &__bar,
+  &__percentage {
+    height: 4px;
+    border-radius: 0.5rem;
+  }
+
+  &__bar {
+    background-color: rgba($sapphire, 0.2);
+  }
+
+  &__percentage {
+    display: block;
+    background-color: $lavender;
+  }
+
+  .active {
+    .skills__arrow {
+      transform: rotate(-180deg);
+    }
+  }
+}

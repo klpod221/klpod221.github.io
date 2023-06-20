@@ -1,0 +1,80 @@
+.qualification {
+  &__tabs {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 3rem;
+  }
+  
+  &__button {
+    font-size: 1.6rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover {
+      color: $sapphire;
+      border-bottom: 1px solid $sapphire;
+    }
+
+    &.active {
+      color: $sapphire;
+      border-bottom: 1px solid $sapphire;
+    }
+  }
+
+  &__icon {
+    font-size: 1.6rem;
+    margin-right: 0.25rem;
+  }
+
+  &__data {
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    column-gap: 1.5rem;
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 1.6rem;
+  }
+
+  &__subtitle {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  &__calendar &__icon {
+    margin-right: 0.5rem;
+  }
+
+  &__rounder {
+    display: inline-block;
+    width: 1.3rem;
+    height: 1.3rem;
+    background-color: $sapphire;
+    border-radius: 50%;
+  }
+
+  &__line {
+    display: block;
+    width: 1px;
+    height: 100%;
+    background-color: $sapphire;
+    transform: translate(0.6rem, -1rem);
+  }
+
+  &__content {
+    opacity: 0;
+    visibility: hidden;
+    animation: fade-out 0.5s ease-in-out forwards;
+    height: 0;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      height: max-content;
+      animation: fade-in 0.5s ease-in-out forwards;
+    }
+  }
+}

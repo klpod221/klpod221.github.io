@@ -1,0 +1,111 @@
+.projects {
+  &__container {
+    overflow: initial !important;
+  }
+
+  &__content {
+    padding: 0 2.5rem;
+  }
+
+  &__img {
+    width: 26.5rem;
+    border-radius: 0.5rem;
+    justify-self: center;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    margin-bottom: 1rem;
+  }
+
+  &__button:hover .btn__icon {
+    transform: translateX(0.5rem);
+  }
+
+  &__view-more {
+    margin-top: 5rem;
+  }
+
+  .btn__icon {
+    margin-top: 0;
+  }
+
+  .swiper-slide {
+    display: grid;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    content: '';
+  }
+
+  .swiper-projects-icon {
+    font-size: 2.5rem;
+    color: $text;
+  }
+
+  .swiper-button-next {
+    right: 0;
+  }
+
+  .swiper-button-prev {
+    left: 0;
+  }
+
+  .swiper-pagination-bullet {
+    background-color: $surface2;
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: $sky;
+  }
+
+  .swiper-horizontal > .swiper-pagination-bullets {
+    bottom: -3.5rem;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev,
+  .swiper-pagination-bullet {
+    outline: none;
+  }
+}
+
+.newproject {
+  text-align: center;
+
+  &__data {
+    max-width: 41rem;
+  }
+
+  &__bg {
+    background-color: $sky;
+    padding-top: 3rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    margin-bottom: 2rem;
+  }
+
+  &__title,
+  &__description {
+    color: $base;
+  }
+
+  &__img {
+    width: 26.5rem;
+    border-radius: 0.5rem;
+    justify-self: center;
+  }
+}
