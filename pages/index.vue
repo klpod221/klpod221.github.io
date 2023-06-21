@@ -27,14 +27,14 @@
 </template>
 
 <script>
-import Home from '~/components/portfolio/sections/home';
-import About from '~/components/portfolio/sections/about';
-import Skills from '~/components/portfolio/sections/skills';
-import Qualification from '~/components/portfolio/sections/qualification';
-import Services from '~/components/portfolio/sections/services';
-import Projects from '~/components/portfolio/sections/projects';
-import NewProject from '~/components/portfolio/sections/new-project';
-import Contact from '~/components/portfolio/sections/contact';
+import Home from '~/components/portfolio/sections/Home';
+import About from '~/components/portfolio/sections/About';
+import Skills from '~/components/portfolio/sections/Skills';
+import Qualification from '~/components/portfolio/sections/Qualification';
+import Services from '~/components/portfolio/sections/Services';
+import Projects from '~/components/portfolio/sections/Projects';
+import NewProject from '~/components/portfolio/sections/NewProject';
+import Contact from '~/components/portfolio/sections/Contact';
 
 export default {
   layout: 'portfolio',
