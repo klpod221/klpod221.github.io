@@ -113,7 +113,11 @@ export default {
         $('.hamburger').removeClass('active');
         $('.mb-menu-wrapper').removeClass('active');
 
-        this.toggleMenu();
+        if ($('.mb-menu-wrapper').hasClass('active')) {
+          $('.mb-menu-wrapper').slideDown(200);
+          return;
+        }
+        $('.mb-menu-wrapper').slideUp(200);
       }
     });
   },
