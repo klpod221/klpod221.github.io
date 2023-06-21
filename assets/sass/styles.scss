@@ -429,3 +429,10 @@ button {
   color: $text;
   font-size: 1.4rem;
 }
+
+.auth-copy {
+  position: absolute;
+  z-index: 1;
+  bottom: 2rem;
+  right: 2rem;
+}

@@ -8,8 +8,6 @@
       </main>
 
       <footer-layout />
-
-      <scroll-top />
     </client-only>
   </div>
 </template>

@@ -5,12 +5,12 @@ $(function () {
   console.log('You can find me on GitHub:');
   console.log('https://github.com/klpod221');
   console.log(`
-    _   _               _ ___ ___ _
-    | |_| |_ __  ___  __| |_  )_  ) |
-    | / / | '_ \\/ _ \\/ _\` |/ / / /| |
-    |_\\_\\_| .__/\\___/\\__,_/___/___|_|
-          |_|
-    `);
+_   _               _ ___ ___ _
+| |_| |_ __  ___  __| |_  )_  ) |
+| / / | '_ \\/ _ \\/ _\` |/ / / /| |
+|_\\_\\_| .__/\\___/\\__,_/___/___|_|
+      |_|
+`);
   // Add smooth scrolling to all links
   $('a').on('click', function (event) {
     // Make sure this.hash has a value before overriding default behavior

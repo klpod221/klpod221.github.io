@@ -10,6 +10,15 @@ export default {
    */
   parseError (error) {
     const response = error.response;
+
+    if (!response) {
+      return {
+        statusCode: 500,
+        message: error.message,
+        data: {}
+      };
+    }
+
     const data = response.data;
     const statusCode = response.status;
     const message = data.message || response.statusText;

@@ -152,7 +152,8 @@ export default {
 
         this.$refs.observer.reset();
       } catch (error) {
-        this.$toast.error(error.message);
+        const { message } = this.$helper.parseError(error);
+        this.$toast.error(message);
       } finally {
         this.$helper.loading.hide();
       }

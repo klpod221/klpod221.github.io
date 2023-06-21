@@ -1,0 +1,111 @@
+.login-page {
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  margin-top: -4rem;
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
+
+  &__background {
+    background-image: url('https://source.unsplash.com/featured/1600x900?natural');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2)
+      );
+    }
+  }
+
+  .login-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35rem;
+    background-color: $surface0;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+
+    &__title {
+      padding: 1.5rem;
+      font-size: 3rem;
+      color: $text;
+      border-bottom: 1px solid $overlay1;
+    }
+
+    &__content {
+      padding: 1.5rem;
+      color: $text;
+      text-align: left;
+    }
+
+    &__field {
+      margin-bottom: 1rem;
+      width: 100%;
+      position: relative;
+
+      &.action {
+        text-align: right;
+      }
+
+      &.has-error {
+        .login-form__input {
+          border: 2px solid $error;
+        }
+      }
+
+      .error-message {
+        position: absolute;
+        top: 0.5rem;
+        right: 0;
+        font-size: 1.2rem;
+        color: $error;
+      }
+    }
+
+    &__label {
+      font-size: 1.6rem;
+    }
+
+    &__input {
+      width: 100%;
+      padding: 1rem 2rem;
+      font-size: 1.6rem;
+      background-color: $surface1;
+      border: 1px solid $overlay1;
+      border-radius: 0.5rem;
+
+      &:focus {
+        outline: none;
+        border: 2px solid $sky;
+      }
+    }
+
+    &__button {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      font-size: 1.6rem;
+      background-color: $sky;
+    }
+  }
+}
