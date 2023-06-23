@@ -35,7 +35,6 @@ export const actions = {
         const { user: userInfo } = await this.$api.auth.getProfile();
 
         if (!userInfo) {
-          this.$cookiz.remove('accessToken');
           return;
         }
 

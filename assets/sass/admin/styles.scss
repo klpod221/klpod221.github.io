@@ -1,0 +1,138 @@
+.admin-layout {
+  .container {
+    display: grid;
+    grid-template-columns: 22rem auto 22rem;
+    gap: 1.5rem;
+    padding: 0 2%;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  svg {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+
+  .aside {
+    height: 100vw;
+    background-color: gray;
+
+    .top {
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2rem;
+
+      &__logo {
+        display: flex;
+        gap: 1rem;
+
+        img {
+          width: 4rem;
+          height: 4rem;
+        }
+
+        h2 {
+          font-weight: 600;
+          color: #000;
+        }
+      }
+
+      &__close-btn {
+        display: none;
+      }
+    }
+
+    .admin-sidebar {
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      height: 86vh;
+      position: relative;
+      top: 3rem;
+
+      svg {
+        font-size: 2.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+
+      h3 {
+        font-weight: 500;
+      }
+
+      &__link {
+        display: flex;
+        margin-left: 1.7rem;
+        gap: 1rem;
+        align-items: center;
+        position: relative;
+        height: 5rem;
+        transition: all 0.3s ease;
+
+        &:last-child {
+          position: absolute;
+          bottom: 2rem;
+          width: 100%;
+        }
+
+        &.active {
+          background-color: #fff;
+          color: #000;
+          margin-left: 0;
+
+          &:before {
+            content: "";
+            width: 0.6rem;
+            height: 100%;
+            background-color: blue;
+          }
+
+          &:hover {
+            margin-left: 0;
+          }
+        }
+
+        &:hover {
+          margin-left: 3rem;
+        }
+
+        .message-count {
+          background-color: $error;
+          color: #fff;
+          padding: 0.2rem 1rem;
+          font-size: 1.5rem;
+          font-weight: 500;
+          border-radius: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .main {
+    margin-top: 1.4rem;
+  }
+
+  .dashboard-page {
+    .date-input {
+      display: inline-block;
+      background-color: #fff;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+
+      input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #000;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 export default function ({ app, store, redirect, route, error }) {
   if (!store.getters.isLoggedIn) {
-    return redirect('/');
+    return redirect('/login');
   }
 }

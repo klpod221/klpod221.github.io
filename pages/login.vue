@@ -69,7 +69,6 @@
 <script>
 export default {
   layout: 'auth',
-  middleware: ['guest'],
   data () {
     return {
       email: '',
