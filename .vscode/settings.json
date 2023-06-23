@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "xmark"
-    ]
+    ],
+    "vue.codeActions.enabled": false
 }

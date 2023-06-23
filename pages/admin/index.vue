@@ -1,107 +1,30 @@
 <template>
-  <div class="dashboard-page">
-    <div class="date-input">
-      <input
-        v-model="date"
-        type="date"
-        class="date-input__input"
-        @change="changeDate"
-      >
-    </div>
+  <main class="main dashboard-page">
+    <h1 class="page-title">
+      {{ pageTitle }}
+    </h1>
 
-    <div class="insights">
-      <div class="insight income">
-        <div class="insight__icon">
-          <font-awesome-icon :icon="['fas', 'chart-simple']" />
-        </div>
-        <div class="middle">
-          <div class="left">
-            <h3 class="insight__text">
-              Total Income
-            </h3>
-            <h1 class="insight__count">
-              100 tr
-            </h1>
-            <small class="text-muted">Last Month</small>
-          </div>
-          <div class="insight__progress">
-            <div class="insight__progress-bar">
-              <svg>
-                <circle cx="50" cy="50" r="48" />
-              </svg>
-              <div class="insight__progress-number">
-                80%
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <dashboard-insights />
 
-      <div class="insight income">
-        <div class="insight__icon">
-          <font-awesome-icon :icon="['fas', 'chart-simple']" />
-        </div>
-        <div class="middle">
-          <div class="left">
-            <h3 class="insight__text">
-              Total Income
-            </h3>
-            <h1 class="insight__count">
-              100 tr
-            </h1>
-            <small class="text-muted">Last Month</small>
-          </div>
-          <div class="insight__progress">
-            <div class="insight__progress-bar">
-              <svg>
-                <circle cx="50" cy="50" r="48" />
-              </svg>
-              <div class="insight__progress-number">
-                80%
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="insight income">
-        <div class="insight__icon">
-          <font-awesome-icon :icon="['fas', 'chart-simple']" />
-        </div>
-        <div class="middle">
-          <div class="left">
-            <h3 class="insight__text">
-              Total Income
-            </h3>
-            <h1 class="insight__count">
-              100 tr
-            </h1>
-            <small class="text-muted">Last Month</small>
-          </div>
-          <div class="insight__progress">
-            <div class="insight__progress-bar">
-              <svg>
-                <circle cx="50" cy="50" r="48" />
-              </svg>
-              <div class="insight__progress-number">
-                80%
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <dashboard-recent-orders />
+  </main>
 </template>
 
 <script>
 import { mapState } from 'vuex';
+import DashboardInsights from '@/components/admin/pages/dashboard/Insights';
+import DashboardRecentOrders from '@/components/admin/pages/dashboard/RecentOrders';
 
 export default {
   layout: 'admin',
+  name: 'Dashboard',
+  components: {
+    DashboardInsights,
+    DashboardRecentOrders
+  },
   data () {
     return {
-      name: '',
+      pageTitle: 'Dashboard',
       date: this.$moment().format('YYYY-MM-DD')
     };
   },

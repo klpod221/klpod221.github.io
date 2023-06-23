@@ -4,13 +4,7 @@
       <div class="container">
         <admin-sidebar />
 
-        <main class="main">
-          <h1 class="page-title">
-            {{ pageTitle }}
-          </h1>
-
-          <nuxt />
-        </main>
+        <nuxt />
       </div>
     </client-only>
   </div>
@@ -21,20 +15,9 @@ import AdminSidebar from '@/components/admin/layouts/Sidebar';
 
 export default {
   name: 'AdminLayout',
-  middleware: ['auth'],
+  // middleware: ['auth'],
   components: {
     AdminSidebar
-  },
-  data () {
-    return {
-      pageTitle: 'Dashboard',
-      date: this.$moment().format('YYYY-MM-DD')
-    };
-  },
-  methods: {
-    changeDate (e) {
-      console.log(this.date);
-    }
   }
 };
 </script>
