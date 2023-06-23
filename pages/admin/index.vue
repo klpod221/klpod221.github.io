@@ -10,83 +10,83 @@
     </div>
 
     <div class="insights">
-      <div class="income">
-        <font-awesome-icon :icon="['fas', 'chart-simple']" />
+      <div class="insight income">
+        <div class="insight__icon">
+          <font-awesome-icon :icon="['fas', 'chart-simple']" />
+        </div>
         <div class="middle">
           <div class="left">
-            <h3 class="title">
+            <h3 class="insight__text">
               Total Income
             </h3>
-            <h1 class="value">
-              100 đ
+            <h1 class="insight__count">
+              100 tr
             </h1>
+            <small class="text-muted">Last Month</small>
           </div>
-          <div class="progress">
-            <div class="progress__bar">
+          <div class="insight__progress">
+            <div class="insight__progress-bar">
               <svg>
-                <circle cx="70" cy="70" r="66" />
+                <circle cx="50" cy="50" r="48" />
               </svg>
-              <div class="number">
-                <p>80%</p>
+              <div class="insight__progress-number">
+                80%
               </div>
             </div>
-          </div>
-          <div class="text-muted">
-            <p>Last Month</p>
           </div>
         </div>
       </div>
 
-      <div class="spent">
-        <font-awesome-icon :icon="['fas', 'shopping-cart']" />
+      <div class="insight income">
+        <div class="insight__icon">
+          <font-awesome-icon :icon="['fas', 'chart-simple']" />
+        </div>
         <div class="middle">
           <div class="left">
-            <h3 class="title">
-              Total spent
+            <h3 class="insight__text">
+              Total Income
             </h3>
-            <h1 class="value">
-              200 đ
+            <h1 class="insight__count">
+              100 tr
             </h1>
+            <small class="text-muted">Last Month</small>
           </div>
-          <div class="progress">
-            <div class="progress__bar">
+          <div class="insight__progress">
+            <div class="insight__progress-bar">
               <svg>
-                <circle cx="70" cy="70" r="66" />
+                <circle cx="50" cy="50" r="48" />
               </svg>
-              <div class="number">
-                <p>80%</p>
+              <div class="insight__progress-number">
+                80%
               </div>
             </div>
-          </div>
-          <div class="text-muted">
-            <p>Last Month</p>
           </div>
         </div>
       </div>
 
-      <div class="customers">
-        <font-awesome-icon :icon="['fas', 'user-friends']" />
+      <div class="insight income">
+        <div class="insight__icon">
+          <font-awesome-icon :icon="['fas', 'chart-simple']" />
+        </div>
         <div class="middle">
           <div class="left">
-            <h3 class="title">
-              Total Customers
+            <h3 class="insight__text">
+              Total Income
             </h3>
-            <h1 class="value">
-              300 đ
+            <h1 class="insight__count">
+              100 tr
             </h1>
+            <small class="text-muted">Last Month</small>
           </div>
-          <div class="progress">
-            <div class="progress__bar">
+          <div class="insight__progress">
+            <div class="insight__progress-bar">
               <svg>
-                <circle cx="70" cy="70" r="66" />
+                <circle cx="50" cy="50" r="48" />
               </svg>
-              <div class="number">
-                <p>80%</p>
+              <div class="insight__progress-number">
+                80%
               </div>
             </div>
-          </div>
-          <div class="text-muted">
-            <p>Last Month</p>
           </div>
         </div>
       </div>
@@ -101,7 +101,8 @@ export default {
   layout: 'admin',
   data () {
     return {
-      name: ''
+      name: '',
+      date: this.$moment().format('YYYY-MM-DD')
     };
   },
   computed: {
@@ -109,6 +110,11 @@ export default {
   },
   created () {
     this.name = this.userInfo ? this.userInfo.email : '';
+  },
+  methods: {
+    changeDate () {
+      console.log(this.date);
+    }
   }
 };
 </script>

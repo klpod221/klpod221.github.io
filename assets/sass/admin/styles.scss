@@ -1,27 +1,26 @@
 .admin-layout {
   .container {
     display: grid;
-    grid-template-columns: 22rem auto 22rem;
-    gap: 1.5rem;
+    grid-template-columns: 20rem auto 25rem;
+    gap: 2rem;
     padding: 0 2%;
     margin: 0;
     max-width: 100%;
   }
 
   svg {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   h3 {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   .aside {
     height: 100vw;
-    background-color: gray;
 
     .top {
-      background-color: #fff;
+      background-color: $surface0;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -32,13 +31,13 @@
         gap: 1rem;
 
         img {
-          width: 4rem;
-          height: 4rem;
+          width: 3.5rem;
+          height: 3.5rem;
         }
 
         h2 {
           font-weight: 600;
-          color: #000;
+          font-size: 2.5rem;
         }
       }
 
@@ -48,17 +47,16 @@
     }
 
     .admin-sidebar {
-      background: #000;
       display: flex;
       flex-direction: column;
-      height: 86vh;
+      height: 70vh;
       position: relative;
-      top: 3rem;
+      top: 4rem;
 
       svg {
-        font-size: 2.5rem;
-        width: 2.5rem;
-        height: 2.5rem;
+        font-size: 2rem;
+        width: 2rem;
+        height: 2rem;
       }
 
       h3 {
@@ -71,7 +69,7 @@
         gap: 1rem;
         align-items: center;
         position: relative;
-        height: 5rem;
+        height: 4rem;
         transition: all 0.3s ease;
 
         &:last-child {
@@ -81,15 +79,14 @@
         }
 
         &.active {
-          background-color: #fff;
-          color: #000;
+          background-color: $surface0;
           margin-left: 0;
 
           &:before {
             content: "";
             width: 0.6rem;
             height: 100%;
-            background-color: blue;
+            background-color: $lavender;
           }
 
           &:hover {
@@ -105,7 +102,7 @@
           background-color: $error;
           color: #fff;
           padding: 0.2rem 1rem;
-          font-size: 1.5rem;
+          font-size: 1.6rem;
           font-weight: 500;
           border-radius: 0.5rem;
         }
@@ -113,14 +110,20 @@
     }
   }
 
+  .page-title {
+    font-weight: 600;
+    line-height: 1;
+    padding: 0.2rem 0;
+  }
+
   .main {
-    margin-top: 1.4rem;
+    margin-top: 2rem;
   }
 
   .dashboard-page {
     .date-input {
       display: inline-block;
-      background-color: #fff;
+      background-color: $surface0;
       border-radius: 0.5rem;
       margin-top: 1rem;
       padding: 0.5rem 1rem;
@@ -129,9 +132,94 @@
         border: none;
         outline: none;
         background-color: transparent;
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         font-weight: 500;
-        color: #000;
+        color: $text;
+
+        &::-webkit-calendar-picker-indicator {
+          filter: invert(1);
+        }
+      }
+    }
+
+    .insights {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
+      margin-top: 1rem;
+
+      .insight {
+        background-color: $surface0;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+        margin-top: 1rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
+        }
+
+        &__icon {
+          background-color: $surface1;
+          width: fit-content;
+          height: fit-content;
+          padding: 1rem;
+          border-radius: 50%;
+
+          svg {
+            font-size: 3rem;
+            width: 3rem;
+            height: 3rem;
+            color: $yellow;
+          }
+        }
+
+        .middle {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        &__text {
+          font-size: 1.6rem;
+          font-weight: 500;
+        }
+
+        &__count {
+          font-size: 3rem;
+          font-weight: 500;
+        }
+
+        &__progress {
+          position: relative;
+          border-radius: 50%;
+
+          svg {
+            width: 10rem;
+            height: 10rem;
+
+            circle {
+              fill: none;
+              stroke: $yellow;
+              stroke-width: 1.5rem;
+              stroke-linecap: round;
+              transform: translate(1rem, 1rem);
+              stroke-dasharray: 220;
+              stroke-dashoffset: -100;
+            }
+          }
+
+          &-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.6rem;
+            font-weight: 500;
+          }
+        }
       }
     }
   }
