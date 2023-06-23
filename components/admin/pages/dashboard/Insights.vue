@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="date-input">
+  <div class="card">
+    <div class="card__header date-input">
       <input
         v-model="date"
         type="date"

@@ -16,99 +16,7 @@
     font-size: 1.6rem;
   }
 
-  .aside {
-    height: 100vw;
-
-    .top {
-      background-color: $surface0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 2rem;
-
-      &__logo {
-        display: flex;
-        gap: 1rem;
-
-        img {
-          width: 3.5rem;
-          height: 3.5rem;
-        }
-
-        h2 {
-          font-weight: 600;
-          font-size: 2.5rem;
-        }
-      }
-
-      &__close-btn {
-        display: none;
-      }
-    }
-
-    .admin-sidebar {
-      display: flex;
-      flex-direction: column;
-      height: 70vh;
-      position: relative;
-      top: 4rem;
-
-      svg {
-        font-size: 2rem;
-        width: 2rem;
-        height: 2rem;
-      }
-
-      h3 {
-        font-weight: 500;
-      }
-
-      &__link {
-        display: flex;
-        margin-left: 1.7rem;
-        gap: 1rem;
-        align-items: center;
-        position: relative;
-        height: 4rem;
-        transition: all 0.3s ease;
-
-        &:last-child {
-          position: absolute;
-          bottom: 2rem;
-          width: 100%;
-        }
-
-        &.active {
-          background-color: $surface0;
-          margin-left: 0;
-
-          &:before {
-            content: "";
-            width: 0.6rem;
-            height: 100%;
-            background-color: $lavender;
-          }
-
-          &:hover {
-            margin-left: 0;
-          }
-        }
-
-        &:hover {
-          margin-left: 3rem;
-        }
-
-        .message-count {
-          background-color: $error;
-          color: #fff;
-          padding: 0.2rem 1rem;
-          font-size: 1.6rem;
-          font-weight: 500;
-          border-radius: 0.5rem;
-        }
-      }
-    }
-  }
+  @import "layouts/aside";
 
   .page-title {
     font-weight: 600;
@@ -118,109 +26,114 @@
 
   .main {
     margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 
-  .dashboard-page {
-    .date-input {
-      display: inline-block;
-      background-color: $surface0;
-      border-radius: 0.5rem;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
+  .card {
+    position: relative;
 
-      input {
-        border: none;
-        outline: none;
-        background-color: transparent;
-        font-size: 1.6rem;
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      h2 {
+        font-size: 2.5rem;
+      }
+
+      .btn {
+        font-size: 1.4rem;
         font-weight: 500;
-        color: $text;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
 
-        &::-webkit-calendar-picker-indicator {
-          filter: invert(1);
+        &:hover {
+          transform: translateY(-0.2rem);
         }
       }
     }
 
-    .insights {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.6rem;
+    &__body {
+      background-color: $surface0;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
       margin-top: 1rem;
+      transition: all 0.3s ease;
+    }
 
-      .insight {
+    &__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    th,
+    td {
+      padding: 1rem 0.5rem;
+      text-align: left;
+      border-bottom: 1px solid $surface1;
+    }
+
+    th {
+      font-weight: 500;
+      font-size: 1.6rem;
+    }
+
+    td {
+      font-size: 1.4rem;
+    }
+
+    tr {
+      transition: all 0.3s ease;
+
+      &:hover {
         background-color: $surface0;
-        padding: 2rem;
-        border-radius: 1rem;
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
-        margin-top: 1rem;
-        transition: all 0.3s ease;
-
-        &:hover {
-          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
-        }
-
-        &__icon {
-          background-color: $surface1;
-          width: fit-content;
-          height: fit-content;
-          padding: 1rem;
-          border-radius: 50%;
-
-          svg {
-            font-size: 3rem;
-            width: 3rem;
-            height: 3rem;
-            color: $yellow;
-          }
-        }
-
-        .middle {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        &__text {
-          font-size: 1.6rem;
-          font-weight: 500;
-        }
-
-        &__count {
-          font-size: 3rem;
-          font-weight: 500;
-        }
-
-        &__progress {
-          position: relative;
-          border-radius: 50%;
-
-          svg {
-            width: 10rem;
-            height: 10rem;
-
-            circle {
-              fill: none;
-              stroke: $yellow;
-              stroke-width: 1.5rem;
-              stroke-linecap: round;
-              transform: translate(1rem, 1rem);
-              stroke-dasharray: 220;
-              stroke-dashoffset: -100;
-            }
-          }
-
-          &-number {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1.6rem;
-            font-weight: 500;
-          }
-        }
       }
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: capitalize;
+
+    &--success {
+      background-color: $success;
+    }
+
+    &--warning {
+      background-color: $warning;
+    }
+
+    &--error {
+      background-color: $error;
+    }
+  }
+
+  .dashboard-page {
+    @import "dashboard/insights";
+
+    .recent-orders {
+      margin-top: 3rem;
     }
   }
 }

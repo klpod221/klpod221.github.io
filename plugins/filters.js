@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 export default ({ $moment }) => {
-  Vue.filter('formatDate', (value, format = 'YYYY.MM.DD HH:mm:ss') => {
+  Vue.filter('formatDate', (value, format = 'DD-MM-YYYY') => {
     if (!value) {
       return '---';
     }
