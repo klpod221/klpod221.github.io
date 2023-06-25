@@ -30,7 +30,7 @@
           <font-awesome-icon :icon="['fas', 'chart-line']" />
           <h3>Setting</h3>
         </nuxt-link>
-        <nuxt-link class="admin-sidebar__link" to="">
+        <nuxt-link class="admin-sidebar__link" to="" @click.native="logout">
           <font-awesome-icon :icon="['fas', 'right-from-bracket']" />
           <h3>Logout</h3>
         </nuxt-link>
@@ -41,6 +41,28 @@
 
 <script>
 export default {
-  name: 'AdminLeftSidebar'
+  name: 'AdminLeftSidebar',
+  methods: {
+    async logout () {
+      try {
+        this.$helper.loading.show();
+
+        await this.$api.auth.logout();
+
+        // clear cookies
+        this.$cookiz.remove('accessToken');
+
+        // clear store
+        this.$store.commit('setUserInfo', null);
+
+        // redirect to login page
+        this.$router.push({ name: 'login' });
+      } catch (error) {
+        this.$toast.error(error.message);
+      } finally {
+        this.$helper.loading.hide();
+      }
+    }
+  }
 };
 </script>
