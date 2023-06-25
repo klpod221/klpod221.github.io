@@ -2,22 +2,26 @@
   <div class="admin-layout">
     <client-only>
       <div class="container">
-        <admin-sidebar />
+        <admin-left-sidebar />
 
         <nuxt />
+
+        <admin-right-sidebar />
       </div>
     </client-only>
   </div>
 </template>
 
 <script>
-import AdminSidebar from '@/components/admin/layouts/Sidebar';
+import AdminLeftSidebar from '@/components/admin/layouts/LeftSidebar';
+import AdminRightSidebar from '@/components/admin/layouts/RightSidebar';
 
 export default {
   name: 'AdminLayout',
-  // middleware: ['auth'],
+  middleware: ['auth'],
   components: {
-    AdminSidebar
+    AdminLeftSidebar,
+    AdminRightSidebar
   }
 };
 </script>

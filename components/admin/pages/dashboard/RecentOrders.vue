@@ -3,7 +3,7 @@
     <div class="card__header">
       <h2>Recent Orders</h2>
     </div>
-    <div class="card__body recent-orders__table">
+    <div class="recent-orders__table card__body no-transform">
       <table class="table">
         <thead>
           <tr>

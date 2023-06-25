@@ -8,62 +8,8 @@
         @change="changeDate"
       >
     </div>
-    <div class="insights">
-      <div class="insight income">
-        <div class="insight__icon">
-          <font-awesome-icon :icon="['fas', 'chart-simple']" />
-        </div>
-        <div class="middle">
-          <div class="left">
-            <h3 class="insight__text">
-              Total Income
-            </h3>
-            <h1 class="insight__count">
-              100 tr
-            </h1>
-            <small class="text-muted">Last Month</small>
-          </div>
-          <div class="insight__progress">
-            <div class="insight__progress-bar">
-              <svg>
-                <circle cx="50" cy="50" r="48" />
-              </svg>
-              <div class="insight__progress-number">
-                80%
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="insight income">
-        <div class="insight__icon">
-          <font-awesome-icon :icon="['fas', 'chart-simple']" />
-        </div>
-        <div class="middle">
-          <div class="left">
-            <h3 class="insight__text">
-              Total Income
-            </h3>
-            <h1 class="insight__count">
-              100 tr
-            </h1>
-            <small class="text-muted">Last Month</small>
-          </div>
-          <div class="insight__progress">
-            <div class="insight__progress-bar">
-              <svg>
-                <circle cx="50" cy="50" r="48" />
-              </svg>
-              <div class="insight__progress-number">
-                80%
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="insight income">
+    <div class="insights card">
+      <div v-for="i in 3" :key="i" class="insight income card__body has-hover">
         <div class="insight__icon">
           <font-awesome-icon :icon="['fas', 'chart-simple']" />
         </div>
