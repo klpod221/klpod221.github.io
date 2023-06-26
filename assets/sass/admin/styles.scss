@@ -1,11 +1,19 @@
 .admin-layout {
-  .container {
-    display: grid;
-    grid-template-columns: 20rem auto 30rem;
-    gap: 2rem;
-    padding: 2rem 4rem;
-    margin: 0;
-    max-width: 100%;
+  display: flex;
+  padding: 2rem 4rem;
+  min-height: 100vh;
+  max-width: 100vw;
+
+  .page-content {
+    margin-left: 22rem;
+    margin-top: 4rem;
+    width: 100%;
+  }
+
+  .page-title {
+    font-weight: 600;
+    line-height: 1;
+    padding: 0.2rem 0;
   }
 
   svg {
@@ -16,19 +24,173 @@
     font-size: 1.6rem;
   }
 
-  @import "layouts/aside";
+  .profile-photo {
+    display: flex;
+    align-items: center;
 
-  .page-title {
-    font-weight: 600;
-    line-height: 1;
-    padding: 0.2rem 0;
+    img {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+    }
   }
 
   .main {
     margin-bottom: 2rem;
   }
 
-  @import "layouts/right-sidebar";
+  .admin-header {
+    position: fixed;
+    z-index: 100;
+    padding-top: 2rem;
+    padding-right: 4rem;
+    top: 0;
+    left: 26rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% - 26rem);
+    background-color: $base;
+
+    .header-right {
+      display: flex;
+      justify-content: flex-end;
+      gap: 2rem;
+
+      &__menu-btn {
+        display: none;
+      }
+
+      &__theme-toggler {
+        background-color: $surface0;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: 4rem;
+        height: 2rem;
+        border-radius: 1rem;
+        transition: all 0.3s ease;
+        padding: 0.2rem;
+
+        svg {
+          font-size: 2rem;
+          width: 2rem;
+          height: 2rem;
+
+          &.active {
+            color: $yellow;
+          }
+        }
+      }
+
+      &__profile {
+        display: flex;
+        gap: 2rem;
+        text-align: right;
+
+        p {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  .aside {
+    height: calc(100vh - 4rem);
+    width: 20rem;
+    position: fixed;
+    z-index: 100;
+    top: 2rem;
+    left: 4rem;
+
+    .top {
+      background-color: $surface0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &__logo {
+        display: flex;
+        gap: 1rem;
+
+        img {
+          width: 3.5rem;
+          height: 3.5rem;
+        }
+
+        h2 {
+          font-weight: 600;
+          font-size: 2.5rem;
+        }
+      }
+
+      &__close-btn {
+        display: none;
+      }
+    }
+
+    .admin-sidebar {
+      display: flex;
+      flex-direction: column;
+      height: 76vh;
+      position: relative;
+      top: 4rem;
+
+      svg {
+        font-size: 2rem;
+        width: 2rem;
+        height: 2rem;
+      }
+
+      h3 {
+        font-weight: 500;
+      }
+
+      &__link {
+        display: flex;
+        padding-left: 1.7rem;
+        gap: 1rem;
+        align-items: center;
+        position: relative;
+        height: 4rem;
+        transition: all 0.3s ease;
+
+        &:last-child {
+          position: absolute;
+          bottom: 2rem;
+          width: 100%;
+        }
+
+        &.active {
+          background-color: $surface0;
+          padding-left: 0;
+
+          &:before {
+            content: "";
+            width: 0.6rem;
+            height: 100%;
+            background-color: $lavender;
+          }
+
+          &:hover {
+            padding-left: 0;
+          }
+        }
+
+        &:hover {
+          padding-left: 3rem;
+        }
+
+        .message-count {
+          background-color: $error;
+          color: #fff;
+          padding: 0.2rem 1rem;
+          font-size: 1.6rem;
+          border-radius: 0.5rem;
+        }
+      }
+    }
+  }
 
   .card {
     position: relative;
@@ -115,6 +277,10 @@
       align-items: center;
       justify-content: flex-end;
     }
+
+    &--responsive {
+      overflow-x: auto;
+    }
   }
 
   .badge {
@@ -139,10 +305,161 @@
   }
 
   .dashboard-page {
-    @import "dashboard/insights";
+    display: grid;
+    grid-template-columns: auto 30rem;
+    gap: 2rem;
+
+    .date-input {
+      display: inline-block;
+      background-color: $surface0;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+
+      input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: $text;
+
+        &::-webkit-calendar-picker-indicator {
+          filter: invert(1);
+        }
+      }
+    }
+
+    .insights {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
+      margin-top: 1rem;
+
+      .insight {
+        cursor: pointer;
+
+        &__icon {
+          background-color: $surface1;
+          width: fit-content;
+          height: fit-content;
+          padding: 1rem;
+          border-radius: 50%;
+
+          svg {
+            font-size: 3rem;
+            width: 3rem;
+            height: 3rem;
+            color: $yellow;
+          }
+        }
+
+        .middle {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        &__text {
+          font-size: 1.6rem;
+          white-space: nowrap;
+        }
+
+        &__count {
+          font-size: 3rem;
+          font-weight: 500;
+        }
+
+        &__progress {
+          position: relative;
+          border-radius: 50%;
+
+          svg {
+            width: 10rem;
+            height: 10rem;
+
+            circle {
+              fill: none;
+              stroke: $yellow;
+              stroke-width: 1.5rem;
+              stroke-linecap: round;
+              transform: translate(1rem, 1rem);
+              stroke-dasharray: 220;
+              stroke-dashoffset: -100;
+            }
+          }
+
+          &-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.6rem;
+            font-weight: 500;
+          }
+        }
+      }
+    }
 
     .recent-orders {
       margin-top: 3rem;
+    }
+
+    .recent-updates {
+      margin-top: 1rem;
+
+      &__item {
+        display: grid;
+        grid-template-columns: 4rem auto;
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .sale-analytics {
+      margin-top: 2rem;
+
+      &__item {
+        display: grid;
+        grid-template-columns: 4rem auto;
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        h5 {
+          font-size: 1.6rem;
+          font-weight: 600;
+        }
+
+        &__icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $red;
+          border-radius: 50%;
+          padding: 0.5rem;
+          width: 4rem;
+          height: 4rem;
+
+          svg {
+            font-size: 2rem;
+            width: 2rem;
+            height: 2rem;
+          }
+        }
+
+        &__right {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin: 0;
+          width: 100%;
+        }
+      }
     }
   }
 }

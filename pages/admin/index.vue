@@ -1,26 +1,36 @@
 <template>
-  <main class="main dashboard-page">
-    <h1 class="page-title">
-      {{ pageTitle }}
-    </h1>
+  <div>
+    <main class="main dashboard-page">
+      <div class="left">
+        <dashboard-insights />
 
-    <dashboard-insights />
+        <dashboard-recent-orders />
+      </div>
 
-    <dashboard-recent-orders />
-  </main>
+      <div class="right">
+        <recent-updates />
+
+        <sale-analytics />
+      </div>
+    </main>
+  </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
 import DashboardInsights from '@/components/admin/pages/dashboard/Insights';
 import DashboardRecentOrders from '@/components/admin/pages/dashboard/RecentOrders';
+import RecentUpdates from '@/components/admin/pages/dashboard/RecentUpdates';
+import SaleAnalytics from '@/components/admin/pages/dashboard/SaleAnalytics';
 
 export default {
   layout: 'admin',
   name: 'Dashboard',
   components: {
     DashboardInsights,
-    DashboardRecentOrders
+    DashboardRecentOrders,
+    RecentUpdates,
+    SaleAnalytics
   },
   data () {
     return {
