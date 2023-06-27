@@ -1,6 +1,7 @@
 export const state = () => ({
   userInfo: {},
-  accessToken: null
+  accessToken: null,
+  isMenuOpen: true
 });
 
 export const getters = {
@@ -12,6 +13,9 @@ export const getters = {
   },
   accessToken (state) {
     return state.accessToken;
+  },
+  isMenuOpen (state) {
+    return state.isMenuOpen;
   }
 };
 
@@ -21,6 +25,12 @@ export const mutations = {
   },
   setAccessToken (state, token) {
     state.accessToken = token;
+  },
+  toggleMenu (state) {
+    state.isMenuOpen = !state.isMenuOpen;
+  },
+  setMenuOpen (state, isOpen) {
+    state.isMenuOpen = isOpen;
   }
 };
 
@@ -31,15 +41,16 @@ export const actions = {
 
       if (accessToken) {
         commit('setAccessToken', accessToken);
-
         const { user: userInfo } = await this.$api.auth.getProfile();
-
         if (!userInfo) {
           return;
         }
 
         commit('setUserInfo', userInfo);
       }
+
+      const isMenuOpen = localStorage.getItem('isMenuOpen');
+      commit('setMenuOpen', isMenuOpen === 'true');
     } catch (e) {}
   }
 };

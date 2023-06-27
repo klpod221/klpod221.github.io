@@ -1,17 +1,16 @@
 <template>
-  <div class="admin-layout">
+  <div class="admin-layout" :class="isMenuOpen ? 'menu-open' : 'menu-close'">
     <client-only>
       <admin-header />
       <admin-sidebar />
 
-      <div class="page-content">
-        <nuxt />
-      </div>
+      <nuxt />
     </client-only>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import AdminHeader from '@/components/admin/layouts/Header';
 import AdminSidebar from '@/components/admin/layouts/Sidebar';
 
@@ -21,6 +20,9 @@ export default {
   components: {
     AdminHeader,
     AdminSidebar
+  },
+  computed: {
+    ...mapState(['isMenuOpen'])
   }
 };
 </script>

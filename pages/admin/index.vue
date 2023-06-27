@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <main class="main dashboard-page">
-      <div class="left">
-        <dashboard-insights />
+  <main class="main dashboard-page">
+    <div class="left">
+      <dashboard-insights />
 
-        <dashboard-recent-orders />
-      </div>
+      <dashboard-recent-orders />
+    </div>
 
-      <div class="right">
-        <recent-updates />
+    <div class="right">
+      <recent-updates />
 
-        <sale-analytics />
-      </div>
-    </main>
-  </div>
+      <sale-analytics />
+    </div>
+  </main>
 </template>
 
 <script>
@@ -40,9 +38,6 @@ export default {
   },
   computed: {
     ...mapState(['userInfo'])
-  },
-  created () {
-    this.name = this.userInfo ? this.userInfo.email : '';
   },
   methods: {
     changeDate () {
