@@ -16,7 +16,7 @@ import AdminSidebar from '@/components/admin/layouts/Sidebar';
 
 export default {
   name: 'AdminLayout',
-  // middleware: ['auth'],
+  middleware: ['auth'],
   components: {
     AdminHeader,
     AdminSidebar
