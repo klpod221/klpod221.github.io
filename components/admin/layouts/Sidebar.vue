@@ -5,6 +5,10 @@
         <img src="~/assets/images/logo.png" alt="Logo">
         <h2>klpod221</h2>
       </nuxt-link>
+
+      <div class="top__menu-toggle" @click="menuToggle">
+        <font-awesome-icon :icon="['fas', 'xmark']" />
+      </div>
     </div>
 
     <div class="admin-sidebar">
@@ -23,6 +27,10 @@
       </nuxt-link>
       <nuxt-link class="admin-sidebar__link" to="">
         <font-awesome-icon :icon="['fas', 'chart-line']" />
+        <h3>Analytics</h3>
+      </nuxt-link>
+      <nuxt-link class="admin-sidebar__link" to="">
+        <font-awesome-icon :icon="['fas', 'gear']" />
         <h3>Setting</h3>
       </nuxt-link>
       <nuxt-link class="admin-sidebar__link" to="" @click.native="logout">
@@ -39,7 +47,7 @@ export default {
   methods: {
     menuToggle () {
       this.$store.commit('toggleMenu');
-      localStorage.setItem('isMenuOpen', this.isMenuOpen);
+      localStorage.setItem('klpod221-isMenuOpen', this.isMenuOpen);
     },
     async logout () {
       try {

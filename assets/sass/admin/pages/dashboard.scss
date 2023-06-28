@@ -1,0 +1,158 @@
+.dashboard-page {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 2rem;
+
+  .date-input {
+    display: inline-block;
+    background-color: $surface0;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+
+    input {
+      border: none;
+      outline: none;
+      background-color: transparent;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: $text;
+
+      &::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+      }
+    }
+  }
+
+  .insights {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    margin-top: 1rem;
+
+    .insight {
+      cursor: pointer;
+
+      &__icon {
+        background-color: $surface1;
+        width: fit-content;
+        height: fit-content;
+        padding: 1rem;
+        border-radius: 50%;
+
+        svg {
+          font-size: 3rem;
+          width: 3rem;
+          height: 3rem;
+          color: $yellow;
+        }
+      }
+
+      .middle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      &__text {
+        font-size: 1.6rem;
+        white-space: nowrap;
+      }
+
+      &__count {
+        font-size: 3rem;
+        font-weight: 500;
+      }
+
+      &__progress {
+        position: relative;
+        border-radius: 50%;
+
+        svg {
+          width: 10rem;
+          height: 10rem;
+
+          circle {
+            fill: none;
+            stroke: $yellow;
+            stroke-width: 1.5rem;
+            stroke-linecap: round;
+            transform: translate(1rem, 1rem);
+            stroke-dasharray: 220;
+            stroke-dashoffset: -100;
+          }
+        }
+
+        &-number {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 1.6rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .recent-orders {
+    margin-top: 3rem;
+  }
+
+  .recent-updates {
+    margin-top: 1rem;
+
+    &__item {
+      display: grid;
+      grid-template-columns: 4rem auto;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .sale-analytics {
+    margin-top: 2rem;
+
+    &__item {
+      display: grid;
+      grid-template-columns: 4rem auto;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      h5 {
+        font-size: 1.6rem;
+        font-weight: 600;
+      }
+
+      &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $red;
+        border-radius: 50%;
+        padding: 0.5rem;
+        width: 4rem;
+        height: 4rem;
+
+        svg {
+          font-size: 2rem;
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+
+      &__right {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 0;
+        width: 100%;
+      }
+    }
+  }
+}

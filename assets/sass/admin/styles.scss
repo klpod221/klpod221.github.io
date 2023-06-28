@@ -25,6 +25,9 @@
 
   .main {
     margin: 4rem 0 0 24rem;
+    padding-right: 4rem;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   .admin-header {
@@ -85,6 +88,7 @@
       display: flex;
       justify-content: flex-end;
       gap: 2rem;
+      position: relative;
 
       &__theme-toggler {
         background-color: $surface0;
@@ -117,6 +121,60 @@
           white-space: nowrap;
         }
       }
+
+      &:hover,
+      &:focus-within {
+        .dropdown-menu {
+          display: block;
+        }
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 4rem;
+        right: 0;
+        width: 15rem;
+        background-color: $surface1;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+        border-radius: 0.5rem;
+        display: none;
+        z-index: 100;
+
+        &__item {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 1rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: $surface2;
+          }
+
+          svg {
+            font-size: 2rem;
+            width: 2rem;
+            height: 2rem;
+          }
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: -1rem;
+          right: 1rem;
+          width: 0;
+          height: 0;
+          border-left: 1rem solid transparent;
+          border-right: 1rem solid transparent;
+          border-bottom: 1rem solid $surface1;
+        }
+
+        &:hover &:before {
+          border-bottom: 1rem solid $surface2;
+        }
+      }
     }
   }
 
@@ -145,6 +203,20 @@
         h2 {
           font-weight: 600;
           font-size: 2.5rem;
+        }
+      }
+
+      &__menu-toggle {
+        display: none;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        cursor: pointer;
+
+        svg {
+          font-size: 2rem;
+          width: 2rem;
+          height: 2rem;
         }
       }
     }
@@ -431,173 +503,76 @@
     }
   }
 
-  .dashboard-page {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 2rem;
+  @import "./pages/dashboard";
 
-    .date-input {
-      display: inline-block;
-      background-color: $surface0;
-      border-radius: 0.5rem;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-
-      input {
-        border: none;
-        outline: none;
-        background-color: transparent;
-        font-size: 1.6rem;
-        font-weight: 500;
-        color: $text;
-
-        &::-webkit-calendar-picker-indicator {
-          filter: invert(1);
-        }
-      }
-    }
-
-    .insights {
-      position: relative;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.6rem;
-      margin-top: 1rem;
-
-      .insight {
-        cursor: pointer;
-
-        &__icon {
-          background-color: $surface1;
-          width: fit-content;
-          height: fit-content;
-          padding: 1rem;
-          border-radius: 50%;
-
-          svg {
-            font-size: 3rem;
-            width: 3rem;
-            height: 3rem;
-            color: $yellow;
-          }
-        }
-
-        .middle {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        &__text {
-          font-size: 1.6rem;
-          white-space: nowrap;
-        }
-
-        &__count {
-          font-size: 3rem;
-          font-weight: 500;
-        }
-
-        &__progress {
-          position: relative;
-          border-radius: 50%;
-
-          svg {
-            width: 10rem;
-            height: 10rem;
-
-            circle {
-              fill: none;
-              stroke: $yellow;
-              stroke-width: 1.5rem;
-              stroke-linecap: round;
-              transform: translate(1rem, 1rem);
-              stroke-dasharray: 220;
-              stroke-dashoffset: -100;
-            }
-          }
-
-          &-number {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 1.6rem;
-            font-weight: 500;
-          }
-        }
-      }
-    }
-
-    .recent-orders {
-      margin-top: 3rem;
-    }
-
-    .recent-updates {
-      margin-top: 1rem;
-
-      &__item {
-        display: grid;
-        grid-template-columns: 4rem auto;
-        gap: 1rem;
-        margin-bottom: 1rem;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-    }
-
-    .sale-analytics {
-      margin-top: 2rem;
-
-      &__item {
-        display: grid;
-        grid-template-columns: 4rem auto;
-        gap: 1rem;
-        margin-bottom: 1rem;
-
-        h5 {
-          font-size: 1.6rem;
-          font-weight: 600;
-        }
-
-        &__icon {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background-color: $red;
-          border-radius: 50%;
-          padding: 0.5rem;
-          width: 4rem;
-          height: 4rem;
-
-          svg {
-            font-size: 2rem;
-            width: 2rem;
-            height: 2rem;
-          }
-        }
-
-        &__right {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          margin: 0;
-          width: 100%;
-        }
-      }
-    }
-  }
-
-  @media (max-width: 1200px) {
+  @media (max-width: 768px) {
     .main {
-      margin-left: 7rem;
+      padding-right: 2rem;
     }
 
     .admin-header {
-      left: 7rem;
-      width: calc(100% - 7rem);
+      padding-right: 2rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .main {
+      padding: 1rem;
+      margin-left: 0 !important;
+      margin-top: 3rem !important;
+    }
+
+    .admin-header {
+      left: 0 !important;
+      width: 100% !important;
+      padding: 1rem;
+      background-color: $surface0;
+
+      .header-right {
+        &__info {
+          display: none;
+        }
+      }
+    }
+
+    .aside {
+      width: 25rem;
+    }
+
+    &.menu-close {
+      .admin-header {
+        left: 1rem;
+        width: calc(100% - 1rem);
+      }
+
+      .aside {
+        transform: translateX(-100%);
+      }
+    }
+
+    &.menu-open {
+      .aside {
+        transform: translateX(0);
+
+        .top {
+          &__menu-toggle {
+            display: block;
+          }
+        }
+
+        .admin-sidebar {
+          &__link {
+            &:last-child {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .admin-header {
+        left: 1rem;
+        width: calc(100% - 1rem);
+      }
     }
   }
 }

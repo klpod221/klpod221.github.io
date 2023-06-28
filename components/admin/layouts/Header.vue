@@ -17,10 +17,6 @@
     </div>
 
     <div class="header-right">
-      <!-- <div class="header-right__theme-toggler">
-        <font-awesome-icon :icon="['fas', 'sun']" />
-        <font-awesome-icon :icon="['fas', 'moon']" class="active" />
-      </div> -->
       <div class="header-right__profile">
         <div class="header-right__info">
           <p>
@@ -31,6 +27,21 @@
         <div class="profile-photo">
           <img src="~/assets/images/avatar.jpeg" alt="Avatar">
         </div>
+      </div>
+
+      <div class="dropdown-menu">
+        <nuxt-link to="" class="dropdown-menu__item">
+          <font-awesome-icon :icon="['fas', 'user']" />
+          <span>Profile</span>
+        </nuxt-link>
+        <nuxt-link to="" class="dropdown-menu__item">
+          <font-awesome-icon :icon="['fas', 'gear']" />
+          <span>Setting</span>
+        </nuxt-link>
+        <nuxt-link to="" class="dropdown-menu__item" @click.native="logout">
+          <font-awesome-icon :icon="['fas', 'right-from-bracket']" />
+          <span>Logout</span>
+        </nuxt-link>
       </div>
     </div>
   </header>
@@ -44,19 +55,21 @@ export default {
   name: 'AdminHeader',
   data () {
     return {
-      pageTitle: 'Dashboard Admin'
+      pageTitle: 'Dashboard'
     };
   },
   computed: {
     ...mapState(['userInfo', 'isMenuOpen'])
   },
   mounted () {
-    if ($(window).width() < 1200) {
-      const closeMenu = () => {
-        this.$store.commit('setMenuOpen', false);
-        localStorage.setItem('isMenuOpen', this.isMenuOpen);
-      };
+    const closeMenu = () => {
+      this.$store.commit('setMenuOpen', false);
+      localStorage.setItem('klpod221-isMenuOpen', this.isMenuOpen);
+    };
+
+    if ($(window).width() < 1200 && $(window).width() > 576) {
       closeMenu();
+
       $(document).on('click', (e) => {
         if (!$(e.target).closest('.admin-header').length) {
           closeMenu();
@@ -69,11 +82,21 @@ export default {
         }
       });
     }
+
+    if ($(window).width() < 576) {
+      if (this.isMenuOpen) {
+        $(document).on('click', (e) => {
+          if (!$(e.target).closest('.admin-header').length) {
+            closeMenu();
+          }
+        });
+      }
+    }
   },
   methods: {
     menuToggle () {
       this.$store.commit('toggleMenu');
-      localStorage.setItem('isMenuOpen', this.isMenuOpen);
+      localStorage.setItem('klpod221-isMenuOpen', this.isMenuOpen);
     },
     generateGreeting () {
       const hour = new Date().getHours();
@@ -84,6 +107,26 @@ export default {
         return 'Hello';
       } else {
         return 'Good Evening';
+      }
+    },
+    async logout () {
+      try {
+        this.$helper.loading.show();
+
+        await this.$api.auth.logout();
+
+        // clear cookies
+        this.$cookiz.remove('accessToken');
+
+        // clear store
+        this.$store.commit('setUserInfo', null);
+
+        // redirect to login page
+        this.$router.push({ name: 'login' });
+      } catch (error) {
+        this.$toast.error(error.message);
+      } finally {
+        this.$helper.loading.hide();
       }
     }
   }

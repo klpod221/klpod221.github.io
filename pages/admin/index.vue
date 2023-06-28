@@ -1,6 +1,9 @@
 <template>
   <main class="main dashboard-page">
-    <div class="left">
+    <h1>
+      Dashboard
+    </h1>
+    <!-- <div class="left">
       <dashboard-insights />
 
       <dashboard-recent-orders />
@@ -10,26 +13,26 @@
       <recent-updates />
 
       <sale-analytics />
-    </div>
+    </div> -->
   </main>
 </template>
 
 <script>
 import { mapState } from 'vuex';
-import DashboardInsights from '@/components/admin/pages/dashboard/Insights';
-import DashboardRecentOrders from '@/components/admin/pages/dashboard/RecentOrders';
-import RecentUpdates from '@/components/admin/pages/dashboard/RecentUpdates';
-import SaleAnalytics from '@/components/admin/pages/dashboard/SaleAnalytics';
+// import DashboardInsights from '@/components/admin/pages/dashboard/Insights';
+// import DashboardRecentOrders from '@/components/admin/pages/dashboard/RecentOrders';
+// import RecentUpdates from '@/components/admin/pages/dashboard/RecentUpdates';
+// import SaleAnalytics from '@/components/admin/pages/dashboard/SaleAnalytics';
 
 export default {
   layout: 'admin',
   name: 'Dashboard',
-  components: {
-    DashboardInsights,
-    DashboardRecentOrders,
-    RecentUpdates,
-    SaleAnalytics
-  },
+  // components: {
+  //   DashboardInsights,
+  //   DashboardRecentOrders,
+  //   RecentUpdates,
+  //   SaleAnalytics
+  // },
   data () {
     return {
       pageTitle: 'Dashboard',
