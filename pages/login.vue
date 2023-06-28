@@ -100,7 +100,7 @@ export default {
         // set access token to cookie
         this.$cookiz.set('accessToken', accessToken, {
           path: '/',
-          maxAge: 60,
+          maxAge: 60 * 60 * 24, // 1 day
           sameSite: 'strict'
         });
 
