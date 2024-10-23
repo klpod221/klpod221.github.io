@@ -87,7 +87,6 @@ const Contact = () => {
               href="https://klpod221.site/cv"
               target="_blank"
               rel="noopener noreferrer"
-              download="klpod221-cv.pdf"
             >
               <DownloadButton bg={red} tooltip="Download">
                 <AiOutlineDownload size={40} />
