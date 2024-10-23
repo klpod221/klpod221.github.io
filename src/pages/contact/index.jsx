@@ -84,7 +84,7 @@ const Contact = () => {
             </a>
 
             <a
-              href="https://klpod221.github.io/cv/output/cv.pdf"
+              href="https://klpod221.site/cv"
               target="_blank"
               rel="noopener noreferrer"
               download="klpod221-cv.pdf"
