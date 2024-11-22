@@ -1,0 +1,52 @@
+---
+import Footer from "./partials/Footer.astro";
+import Header from "./partials/Header.astro";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body
+    class="bg-background text-primary mx-auto my-0 px-4 font-sans text-base"
+  >
+    <Header />
+
+    <main class="max-w-[50rem] mx-auto mt-32">
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  .animate-marquee {
+    animation: marquee var(--duration) linear infinite;
+  }
+
+  .swiper-pagination-bullet {
+    background-color: #ebebeb !important;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-100% - 1rem));
+    }
+  }
+</style>

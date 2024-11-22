@@ -1,0 +1,42 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  skills: { name: string; icon: string }[];
+  duration: number | string;
+}
+
+const { skills, duration } = Astro.props;
+---
+
+<div
+  class="group flex overflow-hidden p-2 gap-4 flex-row relative cursor-pointer"
+>
+  {
+    [...Array(3)].map(() => (
+      <div
+        class={`flex shrink-0 justify-around animate-marquee flex-row group-hover:[animation-play-state:paused] space-x-4`}
+        style={`--duration: ${duration}s`}
+      >
+        <div class="flex space-x-4">
+          {skills.map((skill) => (
+            <div class="flex items-center justify-center space-x-1">
+              <Icon name={`${skill.icon}`} class="w-6 h-6" />
+              <span>{skill.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))
+  }
+
+  <div
+    class="pointer-events-none absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r from-background"
+  >
+  </div>
+
+  <div
+    class="pointer-events-none absolute inset-y-0 right-0 w-1/5 bg-gradient-to-l from-background"
+  >
+  </div>
+</div>

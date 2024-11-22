@@ -1,0 +1,89 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import projects from "../data/projects.json";
+
+import "swiper/css";
+import "swiper/css/pagination";
+---
+
+<div class="swiper relative">
+  <div class="swiper-wrapper">
+    {
+      projects.map((project) => (
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener"
+          class="swiper-slide"
+        >
+          <div class="group relative col-span-3 flex flex-col justify-between overflow-hidden rounded-xl transform-gpu bg-background [border:1px_solid_rgba(255,255,255,.1)] [box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] min-h-[300px] md:min-h-[400px] lg:min-h-[500px] custom">
+            <div>
+              <Image
+                src={project.image}
+                alt={project.title}
+                class="absolute left-0 top-0 h-full w-full border-none transition-all duration-300 ease-out opacity-70 [mask-image:linear-gradient(to_top,transparent_20%,#000_100%)] group-hover:scale-105 object-cover"
+                width={800}
+                height={500}
+              />
+            </div>
+
+            <div class="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
+              <h2 class="text-xl font-semibold">{project.title}</h2>
+              <div class="flex gap-2 mt-1 flex-wrap" />
+              <p>{project.description}</p>
+            </div>
+
+            <div class="pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ml-2">
+              <div class="pointer-events-auto bg-primary rounded-lg py-1 px-2 text-xs text-black flex gap-2 items-center cursor-pointer hover:bg-white/80 transition-colors">
+                Learn more
+                <Icon name="mdi:arrow-right" class="w-4 h-4" />
+              </div>
+            </div>
+
+            <div class="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
+          </div>
+        </a>
+      ))
+    }
+  </div>
+
+  <div class="swiper-pagination"></div>
+
+  <div
+    class="swiper-button-prev hidden md:block w-fit h-fit absolute top-1/2 left-0 transform-gpu -translate-y-1/2 z-10 cursor-pointer"
+  >
+    <Icon name="mdi:chevron-left" class="w-10 h-10" />
+  </div>
+
+  <div
+    class="swiper-button-next hidden md:block w-fit h-fit absolute top-1/2 right-0 transform-gpu -translate-y-1/2 z-10 cursor-pointer"
+  >
+    <Icon name="mdi:chevron-right" class="w-10 h-10" />
+  </div>
+</div>
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
+  const swiper = new Swiper(".swiper", {
+    modules: [Navigation, Pagination, Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 10,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: true
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+</script>

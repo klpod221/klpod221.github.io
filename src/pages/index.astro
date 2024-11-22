@@ -1,0 +1,240 @@
+---
+import { Icon } from "astro-icon/components";
+
+import MyCard from "../components/MyCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SkillList from "../components/SkillList.astro";
+import ExperienceItem from "../components/ExperienceItem.astro";
+import ProjectList from "../components/ProjectList.astro";
+
+import moment from "moment";
+
+const yearOfExperience = moment().diff("2021-12-01", "years", true).toFixed(1);
+---
+
+<BaseLayout title="klpod221's Portfolio">
+  <MyCard>
+    <div class="flex justify-between w-full flex-col sm:flex-row">
+      <div class="flex flex-col">
+        <h1 class="font-bold text-3xl">Bùi Thanh Xuân</h1>
+        <p class="text-secondary flex items-center">
+          <Icon name="mdi:location" class="w-4 h-4 inline-block" />
+          Hà Nội, Việt Nam
+        </p>
+      </div>
+
+      <div class="flex items-baseline space-x-4 mt-2">
+        <a
+          href="mailto:klpod221@gmail.com"
+          class="p-2 border border-tertiary rounded-lg hover:bg-tertiary"
+          aria-label="Email"
+        >
+          <Icon name="mdi:email" class="w-5 h-5 sm:w-6 sm:h-6" />
+        </a>
+
+        <a
+          href="https://github.com/klpod221"
+          target="_blank"
+          class="p-2 border border-tertiary rounded-lg hover:bg-tertiary"
+          aria-label="GitHub Profile"
+        >
+          <Icon name="mdi:github" class="w-5 h-5 sm:w-6 sm:h-6" />
+        </a>
+
+        <a
+          href="https://facebook.com/klpod221"
+          target="_blank"
+          class="p-2 border border-tertiary rounded-lg hover:bg-tertiary"
+          aria-label="Facebook Profile"
+        >
+          <Icon name="mdi:facebook" class="w-5 h-5 sm:w-6 sm:h-6" />
+        </a>
+      </div>
+    </div>
+
+    <p class="mt-2">
+      I'm {yearOfExperience} year experienced in Full-stack Web Development and System
+      Administration. I can design UI/UX (a little bit), develop, deploy, and maintain
+      web applications and servers.
+    </p>
+  </MyCard>
+
+  <div class="mt-16">
+    <h2 class="font-bold text-3xl my-6">What I can do</h2>
+    <div class="flex flex-col space-y-2 text-lg">
+      <!-- HTML, CSS, JavaScript, ReactJS, NextJs, NodeJS, ExpressJS, VueJs, NuxtJS,
+      PHP, Laravel, CakePHP, Typo3 CMS, WordPress, Spring Boot, AngularJS. -->
+      <SkillList
+        duration="35"
+        skills={[
+          { name: "HTML", icon: "mdi:language-html5" },
+          { name: "CSS", icon: "mdi:language-css3" },
+          { name: "JavaScript", icon: "mdi:language-javascript" },
+          { name: "React.js", icon: "mdi:react" },
+          { name: "Next.js", icon: "tabler:brand-nextjs" },
+          { name: "Node.js", icon: "mdi:nodejs" },
+          { name: "Express", icon: "mdi:nodejs" },
+          { name: "Vue.js", icon: "mdi:vuejs" },
+          { name: "Nuxt.js", icon: "tabler:brand-nuxt" },
+          { name: "PHP", icon: "mdi:language-php" },
+          { name: "Laravel", icon: "tabler:brand-laravel" },
+          { name: "CakePHP", icon: "tabler:brand-cakephp" },
+          { name: "Typo3 CMS", icon: "fa6-brands:typo3" },
+          { name: "WordPress", icon: "tabler:brand-wordpress" },
+          { name: "Spring Boot", icon: "simple-icons:springboot" },
+          { name: "AngularJS", icon: "mdi:angular" },
+          { name: "Python", icon: "mdi:language-python" },
+        ]}
+      />
+
+      <SkillList
+        duration="25"
+        skills={[
+          { name: "Git", icon: "mdi:git" },
+          { name: "GitLab", icon: "mdi:gitlab" },
+          { name: "GitHub", icon: "mdi:github" },
+          { name: "GitLab CI/CD", icon: "mdi:gitlab" },
+          { name: "Jenkins", icon: "simple-icons:jenkins" },
+          { name: "Docker", icon: "mdi:docker" },
+          { name: "AWS", icon: "fa6-brands:aws" },
+          { name: "MySQL", icon: "simple-icons:mysql" },
+          { name: "PostgreSQL", icon: "simple-icons:postgresql" },
+          { name: "MongoDB", icon: "simple-icons:mongodb" },
+          { name: "Redis", icon: "mdi:database" },
+        ]}
+      />
+
+      <!-- Linux, Shell Script, Prometheus, Grafana, Nginx, Apache, Webmin, WebSocket,
+      Mattermost, Synology, NAS. -->
+      <SkillList
+        duration="30"
+        skills={[
+          { name: "Linux", icon: "mdi:linux" },
+          { name: "Shell Script", icon: "mdi:script-text" },
+          { name: "Prometheus", icon: "simple-icons:prometheus" },
+          { name: "Grafana", icon: "simple-icons:grafana" },
+          { name: "Nginx", icon: "simple-icons:nginx" },
+          { name: "Apache", icon: "simple-icons:apache" },
+          { name: "Webmin", icon: "simple-icons:webmin" },
+          { name: "WebSocket", icon: "simple-icons:socketdotio" },
+          { name: "Mattermost", icon: "simple-icons:mattermost" },
+          { name: "Synology", icon: "simple-icons:synology" },
+          { name: "NAS", icon: "mdi:server" },
+        ]}
+      />
+    </div>
+
+    <h2 class="font-bold text-3xl mt-6" id="experience">Work Experience</h2>
+    <div class="w-full pl-2">
+      <div class="flex flex-col">
+        <ExperienceItem
+          link="https://hachinet.com"
+          company="Hachinet Software"
+          position="System Administrator"
+          duration="Feb 2023 - Present"
+          descriptions={[
+            "Manage and maintain servers (Linux), network, and security systems.",
+            "Develop and maintain internal tools and applications.",
+          ]}
+        />
+
+        <ExperienceItem
+          link="https://hachinet.com"
+          company="Hachinet Software"
+          position="Full-stack Developer"
+          duration="Apr 2022 - Present"
+          descriptions={[
+            "Create and maintain web applications for clients using many technologies.",
+            "Develop and maintain internal tools and applications for the company.",
+            "Help other developers to solve problems and improve their skills.",
+          ]}
+        />
+
+        <ExperienceItem
+          link="https://github.com/klpod221"
+          company="Freelancer and Open-source Contributor"
+          position="Full-stack Developer and Project Leader"
+          duration="Feb 2022 - May 2022"
+          descriptions={[
+            "Create and maintain web applications for clients using many technologies.",
+            "Develop and maintain internal tools and applications for the company.",
+            "Help other developers to solve problems and improve their skills.",
+          ]}
+        />
+
+        <ExperienceItem
+          link="https://fptsoftware.com"
+          company="FPT Software"
+          position="Internship - Full-stack Developer"
+          duration="Dec 2021 - Feb 2022"
+          descriptions={[
+            "Design and develop web applications using Angular and Spring Boot.",
+          ]}
+        />
+      </div>
+    </div>
+
+    <h2 class="font-bold text-3xl my-6" id="projects">My Personal Projects</h2>
+
+    <ProjectList />
+
+    <h2 class="font-bold text-3xl my-6" id="contact">Like what you see?</h2>
+
+    <MyCard>
+      <h3 class="font-bold text-2xl">Contact me</h3>
+      <p class="mt-2">
+        If you want to work with me, please contact me via email or social
+        media. I'm always open to new opportunities.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+        <a
+          class="flex flex-col items-center group"
+          href="mailto:klpod221@gmail.com"
+        >
+          <Icon name="mdi:email" class="w-14 h-14" />
+          <p class="font-semibold text-lg">Email</p>
+          <div class="inline-block relative text-secondary text-sm pb-px">
+            klpod221@gmail.com
+            <span
+              class="absolute bottom-0 left-0 w-full h-0.5 bg-secondary origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
+            >
+            </span>
+          </div>
+        </a>
+
+        <a
+          class="flex flex-col items-center group"
+          href="https://github.com/klpod221"
+          target="_blank"
+        >
+          <Icon name="mdi:github" class="w-14 h-14" />
+          <p class="font-semibold text-lg">GitHub</p>
+          <div class="inline-block relative text-secondary text-sm pb-px">
+            github.com/klpod221
+            <span
+              class="absolute bottom-0 left-0 w-full h-0.5 bg-secondary origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
+            >
+            </span>
+          </div>
+        </a>
+
+        <a
+          class="flex flex-col items-center group"
+          href="https://facebook.com/klpod221"
+          target="_blank"
+        >
+          <Icon name="mdi:facebook" class="w-14 h-14" />
+          <p class="font-semibold text-lg">Facebook</p>
+          <div class="inline-block relative text-secondary text-sm pb-px">
+            facebook.com/klpod221
+            <span
+              class="absolute bottom-0 left-0 w-full h-0.5 bg-secondary origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
+            >
+            </span>
+          </div>
+        </a>
+      </div>
+    </MyCard>
+  </div>
+</BaseLayout>

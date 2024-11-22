@@ -1,0 +1,32 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<footer
+  class="max-w-[60rem] pt-8 mx-auto mt-20 mb-8 border-t border-tertiary text-center"
+>
+  <p class="flex justify-center items-center space-x-1">
+    © 2024 klpod221. All rights reserved.
+  </p>
+
+  <p class="flex justify-center items-center space-x-1">
+    <span> Build with </span>
+    <Icon name="mdi:heart" class="w-5 h-5 text-red-500" />
+    <span> using </span>
+    <a href="https://astro.build" class="text-secondary relative group">
+      Astro
+      <span
+        class="absolute bottom-0 left-0 w-full h-0.5 bg-secondary origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
+      >
+      </span>
+    </a> .
+    <span> Hosted on </span>
+    <a href="https://vercel.com" class="text-secondary relative group">
+      Vercel
+      <span
+        class="absolute bottom-0 left-0 w-full h-0.5 bg-secondary origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
+      >
+      </span>
+    </a>.
+  </p>
+</footer>
