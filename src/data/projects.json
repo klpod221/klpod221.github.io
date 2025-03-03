@@ -8,43 +8,43 @@
   {
     "title": "DevToolkit",
     "image": "/images/projects/devtoolkit.webp",
-    "link": "https://devtools.klpod221.site/",
+    "link": "https://devtools.klpod221.com/",
     "description": "A collection of tools for developers. Includes a Code compiler, Image Tools, Web Tools, and more."
   },
   {
     "title": "Calculator",
     "image": "/images/projects/calculator.webp",
-    "link": "https://klpod221.site/code-tournament-calculator/",
+    "link": "https://klpod221.com/code-tournament-calculator/",
     "description": "A simple calculator app."
   },
   {
     "title": "2048",
     "image": "/images/projects/2048.webp",
-    "link": "https://klpod221.site/2048",
+    "link": "https://klpod221.com/2048",
     "description": "Clone of 2048 classic game"
   },
   {
     "title": "klpod0s",
     "image": "/images/projects/klpod0s.webp",
-    "link": "https://klpod221.site/klpod0s",
+    "link": "https://klpod221.com/klpod0s",
     "description": "Aesthetic, dynamic and minimal dots for Arch Linux + Hyprland"
   },
   {
     "title": "Get members of Facebook group",
     "image": "/images/projects/get-facebook-members-extension.webp",
-    "link": "https://klpod221.site/chrome-extension-get-member-of-facebook-group",
+    "link": "https://klpod221.com/chrome-extension-get-member-of-facebook-group",
     "description": "Chrome Extension to get member of Facebook group and export to xlsx file"
   },
   {
     "title": "Linkedin Connect Bot",
     "image": "/images/projects/linkedin-connect-bot.webp",
-    "link": "https://klpod221.site/linkedin-connect-bot",
+    "link": "https://klpod221.com/linkedin-connect-bot",
     "description": "Simple Python + Selenium script that help auto send Linkedin connect request"
   },
   {
     "title": "Mini Projects",
     "image": "/images/projects/mini-projects.webp",
-    "link": "https://klpod221.site/mini-projects",
+    "link": "https://klpod221.com/mini-projects",
     "description": "A collection of mini projects"
   }
 ]
