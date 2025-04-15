@@ -8,15 +8,25 @@ const currentYear = new Date().getFullYear();
 <footer
   class="max-w-[60rem] mx-auto my-8 pt-8 border-t border-tertiary text-center"
 >
-  <p class="flex justify-center items-center">
-    © {currentYear} klpod221. All rights reserved.
+  <p class="flex justify-center items-center gap-1 flex-wrap text-sm">
+    <span>© {currentYear}</span>
+    <MyLink
+      href="/"
+      text="klpod221."
+      className="text-secondary"
+    />
+    <span>All rights reserved.</span>
   </p>
 
   <p class="flex justify-center items-center flex-wrap gap-1 text-xs mt-1">
     <span>Build with</span>
     <Icon name="mdi:heart" class="w-4 h-4 text-red-500" />
     <span>using</span>
-    <MyLink href="https://astro.build" text="Astro." className="text-secondary" />
+    <MyLink
+      href="https://astro.build"
+      text="Astro."
+      className="text-secondary"
+    />
     <span>Hosted on</span>
     <MyLink
       href="https://pages.github.com/"

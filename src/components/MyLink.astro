@@ -5,6 +5,6 @@ const { href, text, className } = Astro.props;
 <a href={href} class={`relative group ${className}`}>
   {text}
   <span
-    class="absolute bottom-0 left-0 w-full h-0.5 bg-primary origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
+    class="absolute bottom-0 left-0 h-0.5 w-full origin-left bg-primary scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
   ></span>
 </a>

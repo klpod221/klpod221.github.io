@@ -1,15 +1,21 @@
 [
   {
+    "title": "DevTools",
+    "image": "/images/projects/devtools.webp",
+    "link": "https://devtools.klpod221.com/",
+    "description": "A collection of tools for developers. Includes a Code compiler, Image Tools, Web Tools, and more."
+  },
+  {
+    "title": "Finance Tracker",
+    "image": "/images/projects/finance-tracker.png",
+    "link": "https://finance.klpod221.com/",
+    "description": "A finance tracker that helps you manage your income and expenses."
+  },
+  {
     "title": "Web Base SSH Client",
     "image": "/images/projects/ssh-client.webp",
     "link": "https://github.com/klpod221/ssh-client",
     "description": "A web-based SSH client that allows you to connect to your server from your browser."
-  },
-  {
-    "title": "DevToolkit",
-    "image": "/images/projects/devtoolkit.webp",
-    "link": "https://devtools.klpod221.com/",
-    "description": "A collection of tools for developers. Includes a Code compiler, Image Tools, Web Tools, and more."
   },
   {
     "title": "Calculator",

@@ -12,7 +12,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="klpod221 Portfolio" />
@@ -21,12 +21,10 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body
-    class="bg-background text-primary mx-auto my-0 px-4 font-sans text-base"
-  >
+  <body class="bg-background text-primary font-sans">
     <Header />
 
-    <main class="max-w-[50rem] mx-auto mt-32 overflow-x-hidden">
+    <main class="max-w-[50rem] mx-auto mt-32 px-4">
       <slot />
     </main>
 
