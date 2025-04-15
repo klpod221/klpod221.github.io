@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+
+import MyLink from "../../components/MyLink.astro";
 ---
 
 <header class="fixed top-0 left-0 z-50 bg-background w-full">
@@ -12,40 +14,16 @@ import { Icon } from "astro-icon/components";
       class="hidden md:flex m-0 p-0 fixed z-40 top-16 left-0 bg-background w-full md:w-auto md:static md:flex-row md:space-x-4 md:items-center md:justify-center"
     >
       <li class="p-4 text-center">
-        <a class="inline-block relative group" href="#about">
-          About
-          <span
-            class="absolute bottom-0 left-0 w-full h-0.5 bg-primary origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
-          >
-          </span>
-        </a>
+        <MyLink href="#about" text="About" className="inline-block" />
       </li>
       <li class="p-4 text-center">
-        <a class="inline-block relative group" href="#experience">
-          Experience
-          <span
-            class="absolute bottom-0 left-0 w-full h-0.5 bg-primary origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
-          >
-          </span>
-        </a>
+        <MyLink href="#experience" text="Experience" className="inline-block">
       </li>
       <li class="p-4 text-center">
-        <a class="inline-block relative group" href="#projects">
-          Projects
-          <span
-            class="absolute bottom-0 left-0 w-full h-0.5 bg-primary origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
-          >
-          </span>
-        </a>
+        <MyLink href="#projects" text="Projects" className="inline-block" />
       </li>
       <li class="p-4 text-center">
-        <a class="inline-block relative group" href="#contact">
-          Contact
-          <span
-            class="absolute bottom-0 left-0 w-full h-0.5 bg-primary origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
-          >
-          </span>
-        </a>
+        <MyLink href="#contact" text="Contact" className="inline-block" />
       </li>
     </ul>
 
@@ -70,25 +48,25 @@ import { Icon } from "astro-icon/components";
   const activeHeaderItem = (item) => {
     // Get all navigation items
     const navItems = document.querySelectorAll("nav ul li a");
-    
+
     // Remove active class from all items
-    navItems.forEach(navItem => {
+    navItems.forEach((navItem) => {
       navItem.classList.remove("text-primary");
       navItem.querySelector("span")?.classList.remove("scale-x-100");
     });
-    
+
     // Add active class to clicked item
     item.classList.add("text-primary");
     item.querySelector("span")?.classList.add("scale-x-100");
 
     const target = item.getAttribute("href");
-    
+
     // Handle navigation properly
     if (target === "#about") {
       // Scroll to top since there's no explicit about section
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     } else {
       const targetElement = document.querySelector(target);
@@ -96,7 +74,7 @@ import { Icon } from "astro-icon/components";
         // Add proper offset for header height
         window.scrollTo({
           top: targetElement.offsetTop - 80,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }
     }
@@ -115,11 +93,11 @@ import { Icon } from "astro-icon/components";
     }
 
     // Add event listener to all navigation items
-    document.querySelectorAll("nav ul li a").forEach(item => {
-      item.addEventListener("click", function(e) {
+    document.querySelectorAll("nav ul li a").forEach((item) => {
+      item.addEventListener("click", function (e) {
         e.preventDefault();
         activeHeaderItem(this);
-        
+
         // Only hide on mobile devices
         if (window.innerWidth < 768) {
           document.querySelector("nav ul")?.classList.add("hidden");
@@ -128,7 +106,9 @@ import { Icon } from "astro-icon/components";
     });
 
     // Add event listener to mobile menu button
-    document.querySelector("header button")?.addEventListener("click", toggleMobileMenu);
+    document
+      .querySelector("header button")
+      ?.addEventListener("click", toggleMobileMenu);
   });
 </script>
 

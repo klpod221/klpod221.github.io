@@ -75,18 +75,24 @@ const yearOfExperience = calculateYearsOfExperience("2021-12-01");
   <div class="mt-16">
     <h2 class="font-bold text-2xl md:text-3xl my-6">What I can do</h2>
     <div class="flex flex-col space-y-2 text-lg">
-      <!-- HTML, CSS, JavaScript, ReactJS, NextJs, NodeJS, ExpressJS, VueJs, NuxtJS,
-      PHP, Laravel, CakePHP, Typo3 CMS, WordPress, Spring Boot, AngularJS. -->
       <SkillList
         duration="35"
         skills={[
           { name: "HTML", icon: "mdi:language-html5" },
           { name: "CSS", icon: "mdi:language-css3" },
+          { name: "Sass", icon: "mdi:sass" },
+          { name: "Tailwind CSS", icon: "simple-icons:tailwindcss" },
+          { name: "Bootstrap", icon: "simple-icons:bootstrap" },
+          { name: "Material UI", icon: "mdi:material-ui" },
+          { name: "Ant Design", icon: "simple-icons:antdesign" },
+          { name: "Vuetify", icon: "simple-icons:vuetify" },
           { name: "JavaScript", icon: "mdi:language-javascript" },
           { name: "React.js", icon: "mdi:react" },
+          { name: "React Native", icon: "tabler:brand-react-native" },
           { name: "Next.js", icon: "tabler:brand-nextjs" },
           { name: "Node.js", icon: "mdi:nodejs" },
           { name: "Express", icon: "mdi:nodejs" },
+          { name: "Astro", icon: "simple-icons:astro" },
           { name: "Vue.js", icon: "mdi:vuejs" },
           { name: "Nuxt.js", icon: "tabler:brand-nuxt" },
           { name: "PHP", icon: "mdi:language-php" },
@@ -114,11 +120,13 @@ const yearOfExperience = calculateYearsOfExperience("2021-12-01");
           { name: "PostgreSQL", icon: "simple-icons:postgresql" },
           { name: "MongoDB", icon: "simple-icons:mongodb" },
           { name: "Redis", icon: "mdi:database" },
+          { name: "SQLite", icon: "simple-icons:sqlite" },
+          { name: "Firebase", icon: "simple-icons:firebase" },
+          { name: "RabbitMQ", icon: "simple-icons:rabbitmq" },
+          { name: "Elasticsearch", icon: "simple-icons:elasticsearch" },
         ]}
       />
 
-      <!-- Linux, Shell Script, Prometheus, Grafana, Nginx, Apache, Webmin, WebSocket,
-      Mattermost, Synology, NAS. -->
       <SkillList
         duration="30"
         skills={[

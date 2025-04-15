@@ -1,32 +1,27 @@
 ---
 import { Icon } from "astro-icon/components";
+import MyLink from "../../components/MyLink.astro";
+
+const currentYear = new Date().getFullYear();
 ---
 
 <footer
-  class="max-w-[60rem] pt-8 mx-auto mt-20 mb-8 border-t border-tertiary text-center"
+  class="max-w-[60rem] mx-auto my-8 pt-8 border-t border-tertiary text-center"
 >
-  <p class="flex justify-center items-center space-x-1">
-    © 2024 klpod221. All rights reserved.
+  <p class="flex justify-center items-center">
+    © {currentYear} klpod221. All rights reserved.
   </p>
 
-  <p class="flex justify-center items-center space-x-1 text-xs">
-    <span> Build with </span>
-    <Icon name="mdi:heart" class="w-5 h-5 text-red-500" />
-    <span> using </span>
-    <a href="https://astro.build" class="text-secondary relative group">
-      Astro
-      <span
-        class="absolute bottom-0 left-0 w-full h-0.5 bg-secondary origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
-      >
-      </span>
-    </a> .
-    <span> Hosted on </span>
-    <a href="https://pages.github.com/" class="text-secondary relative group">
-      Github Pages
-      <span
-        class="absolute bottom-0 left-0 w-full h-0.5 bg-secondary origin-left transform scale-x-0 transition-transform duration-300 ease-out group-hover:scale-x-100"
-      >
-      </span>
-    </a>.
+  <p class="flex justify-center items-center flex-wrap gap-1 text-xs mt-1">
+    <span>Build with</span>
+    <Icon name="mdi:heart" class="w-4 h-4 text-red-500" />
+    <span>using</span>
+    <MyLink href="https://astro.build" text="Astro." className="text-secondary" />
+    <span>Hosted on</span>
+    <MyLink
+      href="https://pages.github.com/"
+      text="Github Pages."
+      className="text-secondary"
+    />
   </p>
 </footer>

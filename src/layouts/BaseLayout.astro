@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 import Footer from "./partials/Footer.astro";
 import Header from "./partials/Header.astro";
 
@@ -24,29 +26,10 @@ const { title } = Astro.props;
   >
     <Header />
 
-    <main class="max-w-[50rem] mx-auto mt-32">
+    <main class="max-w-[50rem] mx-auto mt-32 overflow-x-hidden">
       <slot />
     </main>
 
     <Footer />
   </body>
 </html>
-
-<style is:global>
-  .animate-marquee {
-    animation: marquee var(--duration) linear infinite;
-  }
-
-  .swiper-pagination-bullet {
-    background-color: #ebebeb !important;
-  }
-
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(-100% - 1rem));
-    }
-  }
-</style>
