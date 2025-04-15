@@ -13,7 +13,8 @@ const { skills, duration } = Astro.props;
   class="group flex overflow-hidden p-2 gap-4 flex-row relative cursor-pointer"
 >
   {
-    [...Array(3)].map(() => (
+    // Render just two copies instead of three for better performance
+    [...Array(2)].map(() => (
       <div
         class={`flex shrink-0 justify-around animate-marquee flex-row group-hover:[animation-play-state:paused] space-x-4`}
         style={`--duration: ${duration}s`}

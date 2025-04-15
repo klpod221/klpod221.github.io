@@ -67,42 +67,76 @@ import { Icon } from "astro-icon/components";
 </header>
 
 <script>
-  import $ from "jquery";
-
   const activeHeaderItem = (item) => {
-    const $items = $("nav ul li a");
-    $items.removeClass("text-primary").find("span").removeClass("scale-x-100");
-    $(item).addClass("text-primary").find("span").addClass("scale-x-100");
+    // Get all navigation items
+    const navItems = document.querySelectorAll("nav ul li a");
+    
+    // Remove active class from all items
+    navItems.forEach(navItem => {
+      navItem.classList.remove("text-primary");
+      navItem.querySelector("span")?.classList.remove("scale-x-100");
+    });
+    
+    // Add active class to clicked item
+    item.classList.add("text-primary");
+    item.querySelector("span")?.classList.add("scale-x-100");
 
-    const target = $(item).attr("href");
-    const $target = $(target);
-
-    if ($target.length) {
-      $("html, body").animate(
-        { scrollTop: $target.offset().top - 64 },
-        "smooth"
-      );
+    const target = item.getAttribute("href");
+    
+    // Handle navigation properly
+    if (target === "#about") {
+      // Scroll to top since there's no explicit about section
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     } else {
-      $("html, body").animate({ scrollTop: 0 }, "smooth");
+      const targetElement = document.querySelector(target);
+      if (targetElement) {
+        // Add proper offset for header height
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: "smooth"
+        });
+      }
     }
   };
 
   const toggleMobileMenu = () => {
-    $("nav ul").toggleClass("hidden");
+    document.querySelector("nav ul")?.classList.toggle("hidden");
   };
 
-  $(document).ready(() => {
-    // activate the first item by default
-    activeHeaderItem($("nav ul li a").first());
+  // When DOM is loaded
+  document.addEventListener("DOMContentLoaded", () => {
+    // Activate the first item by default
+    const firstNavItem = document.querySelector("nav ul li a");
+    if (firstNavItem) {
+      activeHeaderItem(firstNavItem);
+    }
 
-    // add event listener to all items
-    $("nav ul li a").on("click", function (e) {
-      e.preventDefault();
-      activeHeaderItem(this);
-      $("nav ul").addClass("hidden");
+    // Add event listener to all navigation items
+    document.querySelectorAll("nav ul li a").forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.preventDefault();
+        activeHeaderItem(this);
+        
+        // Only hide on mobile devices
+        if (window.innerWidth < 768) {
+          document.querySelector("nav ul")?.classList.add("hidden");
+        }
+      });
     });
 
-    // add event listener to mobile menu button
-    $("header button").on("click", toggleMobileMenu);
+    // Add event listener to mobile menu button
+    document.querySelector("header button")?.addEventListener("click", toggleMobileMenu);
   });
 </script>
+
+<style>
+  @media (max-width: 767px) {
+    nav ul {
+      transition: all 0.3s ease;
+      border-bottom: 1px solid #27272a;
+    }
+  }
+</style>

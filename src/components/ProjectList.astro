@@ -71,11 +71,11 @@ import "swiper/css/pagination";
   const swiper = new Swiper(".swiper", {
     modules: [Navigation, Pagination, Autoplay],
     slidesPerView: 1,
-    spaceBetween: 10,
+    spaceBetween: 20,
     loop: true,
     autoplay: {
       delay: 5000,
-      disableOnInteraction: true
+      disableOnInteraction: false, // Changed to false for better UX
     },
     navigation: {
       nextEl: ".swiper-button-next",
