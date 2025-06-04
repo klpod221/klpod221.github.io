@@ -7,18 +7,12 @@ import SkillList from "../components/SkillList.astro";
 import ExperienceItem from "../components/ExperienceItem.astro";
 import ProjectList from "../components/ProjectList.astro";
 
-// Tính năm kinh nghiệm bằng JavaScript thuần
 const calculateYearsOfExperience = (startDate) => {
   const start = new Date(startDate);
   const today = new Date();
 
-  // Tính số milliseconds giữa hai ngày
   const diffMs = today.getTime() - start.getTime();
-
-  // Chuyển đổi thành năm (chia cho số milliseconds trong một năm)
   const years = diffMs / (1000 * 60 * 60 * 24 * 365.25);
-
-  // Làm tròn đến 1 số thập phân
   return years.toFixed(1);
 };
 
@@ -66,9 +60,7 @@ const yearOfExperience = calculateYearsOfExperience("2021-12-01");
     </div>
 
     <p class="mt-2">
-      I'm {yearOfExperience} year experienced in Full-stack Web Development and System
-      Administration. I can design UI/UX (a little bit), develop, deploy, and maintain
-      web applications and servers.
+      As a Full-stack Web Development and System Administration professional with {yearOfExperience} years of experience, I am confident in my ability to handle every stage of building a complete web application from scratch. From designing user interfaces and developing the backend to installing, configuring, and managing server infrastructure, I have hands-on experience. Additionally, I have experience in team management and providing technical direction. Currently, I am seeking opportunities to advance my career in a Tech Lead role, where I can contribute to building and leading a strong technical team.
     </p>
   </MyCard>
 
