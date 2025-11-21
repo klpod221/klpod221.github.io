@@ -1,20 +1,23 @@
 [
   {
     "title": "Kerminal",
-    "image": "/images/projects/kerminal.webp",
+    "image": "https://raw.githubusercontent.com/klpod221/kerminal/refs/heads/main/public/screenshots/MainInterface.png",
     "link": "https://klpod221.com/kerminal",
+    "github": "https://github.com/klpod221/kerminal",
     "description": "Modern Terminal with SSH, Tunneling & Cross-Device Sync"
   },
   {
     "title": "klpod0s",
     "image": "/images/projects/klpod0s.webp",
     "link": "https://klpod221.com/klpod0s",
+    "github": "https://github.com/klpod221/klpod0s",
     "description": "Aesthetic, dynamic and minimal dots for Arch Linux + Hyprland"
   },
   {
     "title": "DevTools",
     "image": "/images/projects/devtools.webp",
     "link": "https://devtools.klpod221.com/",
+    "github": "https://github.com/klpod221/devtoolkit",
     "description": "A collection of tools for developers. Includes a Code compiler, Image Tools, Web Tools, and more."
   }
 ]
