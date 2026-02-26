@@ -1,7 +1,7 @@
 [
   {
     "title": "Kerminal",
-    "image": "https://raw.githubusercontent.com/klpod221/kerminal/refs/heads/main/public/screenshots/MainInterface.png",
+    "image": "https://klpod221.com/kerminal/screenshots/Dashboard.png",
     "link": "https://klpod221.com/kerminal",
     "github": "https://github.com/klpod221/kerminal",
     "description": "Modern Terminal with SSH, Tunneling & Cross-Device Sync"
